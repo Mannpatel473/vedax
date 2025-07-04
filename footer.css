@@ -6,7 +6,7 @@ footer {
     display: flex;
     justify-content: space-around;
     align-items: flex-start;
-    flex-wrap: wrap;
+    /*flex-wrap: wrap;*/
 }
 
 .footer-section {
