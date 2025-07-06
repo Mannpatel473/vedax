@@ -348,6 +348,53 @@
             transform: scale(1.2);
         }
 
+.footer-legal {
+    width: 100%;
+    text-align: center;
+    padding: 0.5rem 20px;
+    font-size: 0.9rem;
+    background: white;
+    color: #4b5563;
+    border-top: 1px solid #e6e6e6;
+}
+
+.footer-legal a {
+    color: #4b5563;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.footer-legal a:hover {
+    color: #eb9324;
+}
+
+@media (max-width: 768px) {
+    footer {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .footer-section {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .social-links a {
+        font-size: 1.2rem;
+    }
+
+    .social-links img {
+        width: 25px;
+        height: 25px;
+    }
+
+    .footer-legal {
+        font-size: 0.8rem;
+        padding: 0.5rem 15px;
+    }
+}
+
         /* Animations */
         @keyframes capsulespin {
             0% { transform: rotate(0deg) scale(1); }
@@ -594,15 +641,20 @@
         <div class="footer-section">
             <h3>CONTACT US</h3>
             <p>J-99, Radha Park Society, Opp. Sardar Estate, New VIP Road, Vadodara - 390019, Gujarat, India.</p>
-            <p>+91 63591 57356</p>
-            <p>info@vedaxpharma.com</p>
+            <p><a href="tel:+916359157356">+91 63591 57356</a></p>
+            <p><a href="mailto:info@vedaxpharma.com">info@vedaxpharma.com</a></p>
         <div class="social-links">
             <a href="https://www.facebook.com/share/191Quj18k5/?mibextid=wwXIfr"><img src="../imgs/facebook.png" alt="Facebook"></a>
             <a href="https://wa.me/916359157356"><img src="../imgs/whatsapp.png" alt="WhatsApp"></a>
             <a href="https://www.instagram.com/vedaxpharmaofficial/"><img src="../imgs/instagram.png" alt="Instagram"></a>
             <a href="https://www.threads.com/@vedaxpharmaofficial"><img src="../imgs/threads.png" alt="Threads"></a>
         </div>
+
+<div class="footer-legal">
+    <a href="terms.html">Terms and Conditions</a> | Made by Mann Kachhiya
+</div>
     </footer>
+    
 
     <script>
         // Hamburger menu toggle
