@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Details - Vedax Pharma</title>
+    <title>Cafimost Product Details - Vedax Pharma</title>
     <link rel="icon" type="image/x-icon" href="../imgs/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <a href="index.html" class="back-button" title="Back to Home" aria-label="Back to Home">
+    <a href="allproducts.html" class="back-button" title="Back to Home" aria-label="Back to Home">
         <i class="fa fa-angle-left" style="font-size: 36px;"></i>
     </a>
     <br>
@@ -38,10 +38,10 @@
     <section class="product-details" id="productDetails">
         <br>
         <div class="product-image">
-            <a href="../index.html"><img src="./imgs/Cafimost-1.png" alt="Cafimost Tablets" id="productImage" class="main-image"></a>
+            <img src="./imgs/Cafimost-1.png" alt="Cafimost Tablets" id="productImage" class="main-image">
             <div class="thumbnail-gallery">
-                <img src="./imgs/Cafimost-1.png" alt="CAFIMOST Tablets 1" class="thumbnail" data-full="./imgs/Cafimost-1.png">
-                <img src="./imgs/Cafimost-2.png" alt="CAFIMOST Tablets 2" class="thumbnail" data-full="./imgs/Cafimost-2.png">
+                <img src="./imgs/Cafimost-1.png" alt="CAFIMOST Tablets image 1" class="thumbnail" data-full="./imgs/Cafimost-1.png">
+                <img src="./imgs/Cafimost-2.png" alt="CAFIMOST Tablets image 2" class="thumbnail" data-full="./imgs/Cafimost-2.png">
             </div>
         </div>
         <div class="product-info">
@@ -101,7 +101,7 @@
         </div>
     </div>
 
-    <footer>
+     <footer>
         <div class="footer-section">
             <h3>ABOUT US</h3>
             <img src="../imgs/logo.png" style="width: 150px;">
@@ -127,8 +127,6 @@
     <div class="footer-copy">© 2025 Vedax Pharma. All rights reserved</div>
     <a href="../privacy.html" class="terms">Privacy | Disclaimer</a>
 </div>
-
-
 
     <script>
         // Hamburger menu toggle
@@ -196,24 +194,49 @@
         const modalClose = document.getElementById('modalClose');
         const modalImage = document.getElementById('modalImage');
         const thumbnails = document.querySelectorAll('.thumbnail');
+        let currentImageIndex = 0;
+        const slideshowInterval = 7000; // Change image every 7 seconds
 
         // Set initial active thumbnail
         thumbnails[0].classList.add('active');
 
-        // Thumbnail click handler
-        thumbnails.forEach(thumbnail => {
-            thumbnail.addEventListener('click', () => {
-                // Remove active class from all thumbnails
+        // Function to change image with fade animation
+        function changeImage(index) {
+            // Add fade class to start fading out
+            productImage.classList.add('fade');
+            modalImage.classList.add('fade');
+
+            setTimeout(() => {
+                // Update thumbnail active state
                 thumbnails.forEach(t => t.classList.remove('active'));
-                // Add active class to clicked thumbnail
-                thumbnail.classList.add('active');
-                // Update main image
-                const fullImage = thumbnail.getAttribute('data-full');
+                thumbnails[index].classList.add('active');
+
+                // Update images
+                const fullImage = thumbnails[index].getAttribute('data-full');
                 productImage.src = fullImage;
-                productImage.alt = thumbnail.alt;
-                // Update modal image
+                productImage.alt = thumbnails[index].alt;
                 modalImage.src = fullImage;
-                modalImage.alt = thumbnail.alt;
+                modalImage.alt = thumbnails[index].alt;
+
+                // Remove fade class to fade in
+                productImage.classList.remove('fade');
+                modalImage.classList.remove('fade');
+            }, 500); // Match the CSS transition duration
+        }
+
+        // Automatic slideshow
+        function startSlideshow() {
+            setInterval(() => {
+                currentImageIndex = (currentImageIndex + 1) % thumbnails.length;
+                changeImage(currentImageIndex);
+            }, slideshowInterval);
+        }
+
+        // Thumbnail click handler
+        thumbnails.forEach((thumbnail, index) => {
+            thumbnail.addEventListener('click', () => {
+                currentImageIndex = index;
+                changeImage(index);
             });
         });
 
@@ -240,6 +263,9 @@
                 imageModal.style.display = 'none';
             }
         });
+
+        // Start the slideshow
+        startSlideshow();
     </script>
 </body>
 </html>
