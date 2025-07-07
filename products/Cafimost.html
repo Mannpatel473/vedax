@@ -343,7 +343,7 @@
 .footer-legal {
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
     padding: 0.5rem 20px;
     font-size: 0.9rem;
@@ -351,7 +351,23 @@
     color: white;
     border-top: 1px solid #e6e6e6;
     margin: 2rem 0;
+    text-align: center;
 }
+
+.footer-links {
+    display: flex;
+    
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
 
 
         /* Animations */
@@ -612,9 +628,15 @@
         </div>
     </footer>
 <div class="footer-legal">
-    <a href="https://mannkachhiya.github.io/">Made by Mann</a>
-    <a href="../terms.html" class="terms">Terms and Conditions</a>
+    <div class="footer-links">
+        <a href="https://mannkachhiya.me">Developed by Mann</a>
+        <a href="../terms.html" class="terms">Terms and Conditions</a>
+    </div>
+    <div class="footer-copy">
+        © 2025 Vedax Pharma. All rights reserved
+    </div>
 </div>
+
 
     <script>
         // Hamburger menu toggle
