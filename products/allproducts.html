@@ -37,6 +37,21 @@
             text-decoration: none;
         }
 
+
+        .back-button {
+            position: absolute;
+            top: 85px;
+            left: 15px;
+            color: #1e3a8a;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+        }
+
+        .back-button:hover {
+            color: #007bff;
+        }
+        
+        
         /* Header */
         header {
     background: linear-gradient(90deg, rgba(79, 196, 159, 0.8), rgba(235, 145, 36, 0.8));
@@ -461,6 +476,9 @@
     </style>
 </head>
 <body>
+    <a href="index.html" class="back-button" title="Back to Home" aria-label="Back to Home">
+        <i class="fa fa-angle-left" style="font-size: 36px;"></i>
+    </a>
     <header>
         <nav>
             <a href="../index.html"><img src="../imgs/logo.png" alt="Vedax Pharma" class="logo"></a>
