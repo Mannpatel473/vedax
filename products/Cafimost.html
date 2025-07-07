@@ -30,6 +30,7 @@
 
         a {
             text-decoration: none;
+            color: white;
         }
 
         .back-button {
@@ -338,6 +339,21 @@
             transform: scale(1.2);
         }
 
+
+.footer-legal {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 20px;
+    font-size: 0.9rem;
+    background: linear-gradient(90deg, #4fc49fcd, #eb9124d8);
+    color: white;
+    border-top: 1px solid #e6e6e6;
+    margin: 2rem 0;
+}
+
+
         /* Animations */
         @keyframes capsulespin {
             0% { transform: rotate(0deg) scale(1); }
@@ -584,8 +600,9 @@
         <div class="footer-section">
             <h3>CONTACT US</h3>
             <p>J-99, Radha Park Society, Opp. Sardar Estate, New VIP Road, Vadodara - 390019, Gujarat, India.</p>
-            <p>+91 63591 57356</p>
-            <p>info@vedaxpharma.com</p>
+            <p><a href="tel:+916359157356">+91 63591 57356</a></p>
+            <p><a href="mailto:info@vedaxpharma.com">info@vedaxpharma.com</a></p>
+
             <div class="social-links">
                 <a href="https://www.facebook.com/share/191Quj18k5/?mibextid=wwXIfr"><img src="../imgs/facebook.png" alt="Facebook"></a>
                 <a href="https://wa.me/916359157356"><img src="../imgs/whatsapp.png" alt="WhatsApp"></a>
@@ -594,6 +611,10 @@
             </div>
         </div>
     </footer>
+<div class="footer-legal">
+    <a href="https://mannkachhiya.github.io/">Made by Mann</a>
+    <a href="../terms.html" class="terms">Terms and Conditions</a>
+</div>
 
     <script>
         // Hamburger menu toggle
