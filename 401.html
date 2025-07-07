@@ -6,158 +6,233 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    body { margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; background: linear-gradient(to bottom, #1e3a8a, #4c1d95); font-family: 'Orbitron', sans-serif; }
-    canvas { border: 4px solid #ffffff20; border-radius: 12px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5); }
-    #game-over { display: none; position: absolute; text-align: center; color: white; background: rgba(0, 0, 0, 0.8); padding: 20px; border-radius: 10px; }
-    #game-over.show { display: block; }
-    #restart-btn { transition: transform 0.2s; }
-    #restart-btn:hover { transform: scale(1.1); }
+    body {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(to bottom, #1e3a8a, #4c1d95);
+      font-family: 'Orbitron', sans-serif;
+    }
+    header {
+      width: 100%;
+      text-align: center;
+      padding: 20px 0;
+      background: rgba(0, 0, 0, 0.7);
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 20;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+    canvas {
+      border: 4px solid #ffffff20;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+      margin-top: 100px;
+    }
+    #game-over {
+      display: none;
+      position: absolute;
+      text-align: center;
+      color: white;
+      background: rgba(0, 0, 0, 0.8);
+      padding: 20px;
+      border-radius: 10px;
+      z-index: 10;
+    }
+    #game-over.show {
+      display: block;
+    }
+    #restart-btn {
+      transition: transform 0.2s, background-color 0.2s;
+    }
+    #restart-btn:hover {
+      transform: scale(1.1);
+      background-color: #2563eb;
+    }
+    #restart-btn:focus {
+      outline: 2px solid #ffffff;
+      outline-offset: 2px;
+    }
+    .link_404 {
+      margin-top: 10px;
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+      font-family: sans-serif;
+      font-size: 16px;
+      transition: background-color 0.2s;
+    }
+    .link_404:hover {
+      background-color: #0056b3;
+    }
+    .link_404:focus {
+      outline: 2px solid #ffffff;
+      outline-offset: 2px;
+    }
+    h1 {
+      color: red;
+      margin-bottom: 10px;
+      text-align: center;
+      font-size: 36px;
+    }
   </style>
 </head>
 <body>
-  <h1 style="color:red;">The page you are looking for is not available!</h1>
-<div id="game-over" class="show">
-  <h2 class="text-4xl font-bold text-red-500 mb-4">Game Over!</h2>
-  <p class="text-2xl mb-6">Score: <span id="final-score">0</span></p>
-  <button id="restart-btn" class="bg-blue-600 text-white px-6 py-3 rounded-lg text-lg hover:bg-blue-700">Restart</button>
-</div>
-<a href="https://www.vedaxpharma.com/"
-   style="display: inline-block; padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; border-radius: 4px; font-family: sans-serif; font-size: 16px;"
-   onmouseover="this.style.backgroundColor='#0056b3'"
-   onmouseout="this.style.backgroundColor='#007bff'">
-   Go to Home
-</a>
+  <header>
+    <h1>The page you are looking for is not available!</h1>
+    <a href="https://www.vedaxpharma.com/" class="link_404">Go to Home</a>
+  </header>
+  <div id="game-over">
+    <h2 class="text-4xl font-bold text-red-500 mb-4">Game Over!</h2>
+    <p class="text-2xl mb-6">Score: <span id="final-score">0</span></p>
+    <button id="restart-btn" class="bg-blue-600 text-white px-6 py-3 rounded-lg text-lg hover:bg-blue-700">Restart</button>
+  </div>
 
-<script>
-let playerX, playerY;
-let objects = [];
-let particles = [];
-let score = 0;
-let gameOver = false;
+  <script>
+    let playerX, playerY;
+    let objects = [];
+    let particles = [];
+    let score = 0;
+    let gameOver = false;
+    let canvas;
 
-function setup() {
-  createCanvas(600, 400);
-  playerX = width / 2;
-  playerY = height - 30;
-  spawnObject();
-  document.getElementById('restart-btn').addEventListener('click', restartGame);
-}
+    function setup() {
+      canvas = createCanvas(600, 400);
+      canvas.position((windowWidth - width) / 2, (windowHeight - height) / 2 - 50);
+      playerX = width / 2;
+      playerY = height - 30;
+      spawnObject();
+      document.getElementById('restart-btn').addEventListener('click', restartGame);
+    }
 
-function draw() {
-  background(30, 30, 50);
-  
-  // Draw subtle background grid
-  stroke(255, 20);
-  for (let x = 0; x < width; x += 50) {
-    line(x, 0, x, height);
-  }
-  for (let y = 0; y < height; y += 50) {
-    line(0, y, width, y);
-  }
-  
-  if (!gameOver) {
-    // Draw player (sleek cursor with glow)
-    noStroke();
-    fill(59, 130, 246);
-    ellipse(playerX, playerY, 40, 40);
-    fill(255, 255, 255, 100);
-    ellipse(playerX, playerY, 50, 50);
-    
-    // Move player with mouse
-    playerX = constrain(mouseX, 25, width - 25);
-    
-    // Update and draw objects
-    for (let i = objects.length - 1; i >= 0; i--) {
-      let obj = objects[i];
-      obj.y += obj.speed;
-      
-      // Draw object with glow
-      textAlign(CENTER, CENTER);
-      textSize(18);
-      fill(obj.is404 ? '#34d399' : '#ef4444');
-      textStyle(BOLD);
-      text(obj.text, obj.x, obj.y);
-      fill(255, 255, 255, 50);
-      text(obj.text, obj.x, obj.y - 2);
-      
-      // Check collision with player
-      if (obj.y > playerY - 20 && obj.y < playerY + 20 && abs(obj.x - playerX) < 30) {
-        if (obj.is404) {
-          score += 1;
-          spawnParticles(obj.x, obj.y);
-        } else {
-          gameOver = true;
-          document.getElementById('game-over').classList.add('show');
-          document.getElementById('final-score').textContent = score;
+    function draw() {
+      background(30, 30, 50);
+
+      // Draw subtle background grid
+      stroke(255, 20);
+      for (let x = 0; x < width; x += 50) {
+        line(x, 0, x, height);
+      }
+      for (let y = 0; y < height; y += 50) {
+        line(0, y, width, y);
+      }
+
+      if (!gameOver) {
+        // Draw player (sleek cursor with glow)
+        noStroke();
+        fill(59, 130, 246);
+        ellipse(playerX, playerY, 40, 40);
+        fill(255, 255, 255, 100);
+        ellipse(playerX, playerY, 50, 50);
+
+        // Move player with mouse only if over canvas
+        if (mouseX >= 0 && mouseX <= width && mouseY >= 0 && mouseY <= height) {
+          playerX = constrain(mouseX, 25, width - 25);
         }
-        objects.splice(i, 1);
-      }
-      
-      if (obj.y > height) {
-        objects.splice(i, 1);
+
+        // Update and draw objects
+        for (let i = objects.length - 1; i >= 0; i--) {
+          let obj = objects[i];
+          obj.y += obj.speed;
+
+          // Draw object with glow
+          textAlign(CENTER, CENTER);
+          textSize(18);
+          fill(obj.is404 ? '#34d399' : '#ef4444');
+          textStyle(BOLD);
+          text(obj.text, obj.x, obj.y);
+          fill(255, 255, 255, 50);
+          text(obj.text, obj.x, obj.y - 2);
+
+          // Check collision with player
+          if (obj.y > playerY - 20 && obj.y < playerY + 20 && abs(obj.x - playerX) < 30) {
+            if (obj.is404) {
+              score += 1;
+              spawnParticles(obj.x, obj.y);
+            } else {
+              gameOver = true;
+              document.getElementById('game-over').classList.add('show');
+              document.getElementById('final-score').textContent = score;
+            }
+            objects.splice(i, 1);
+          }
+
+          if (obj.y > height) {
+            objects.splice(i, 1);
+          }
+        }
+
+        // Update and draw particles
+        for (let i = particles.length - 1; i >= 0; i--) {
+          let p = particles[i];
+          p.x += p.vx;
+          p.y += p.vy;
+          p.alpha -= 5;
+          fill(255, p.alpha);
+          noStroke();
+          ellipse(p.x, p.y, 5);
+          if (p.alpha <= 0) {
+            particles.splice(i, 1);
+          }
+        }
+
+        // Spawn new objects (limit to 10 objects to prevent overload)
+        if (frameCount % 50 === 0 && objects.length < 10) {
+          spawnObject();
+        }
+
+        // Display score
+        textAlign(LEFT);
+        textSize(20);
+        fill(255);
+        text('Score: ' + score, 20, 40);
       }
     }
-    
-    // Update and draw particles
-    for (let i = particles.length - 1; i >= 0; i--) {
-      let p = particles[i];
-      p.x += p.vx;
-      p.y += p.vy;
-      p.alpha -= 5;
-      fill(255, p.alpha);
-      noStroke();
-      ellipse(p.x, p.y, 5);
-      if (p.alpha <= 0) {
-        particles.splice(i, 1);
+
+    function spawnObject() {
+      let is404 = random() < 0.5;
+      let text = is404 ? '404' : random(['500', '403', '503']);
+      let obj = {
+        x: random(30, width - 30),
+        y: 0,
+        speed: random(2, 5),
+        text: text,
+        is404: is404
+      };
+      objects.push(obj);
+    }
+
+    function spawnParticles(x, y) {
+      for (let i = 0; i < 10; i++) {
+        particles.push({
+          x: x,
+          y: y,
+          vx: random(-2, 2),
+          vy: random(-2, 2),
+          alpha: 255
+        });
       }
     }
-    
-    // Spawn new objects
-    if (frameCount % 50 === 0) {
+
+    function restartGame() {
+      score = 0;
+      objects = [];
+      particles = [];
+      gameOver = false;
+      document.getElementById('game-over').classList.remove('show');
       spawnObject();
     }
-    
-    // Display score
-    textAlign(LEFT);
-    textSize(20);
-    fill(255);
-    text('Score: ' + score, 20, 40);
-  }
-}
 
-function spawnObject() {
-  let is404 = random() < 0.5;
-  let text = is404 ? '404' : random(['500', '403', '503']);
-  let obj = {
-    x: random(30, width - 30),
-    y: 0,
-    speed: random(2, 5),
-    text: text,
-    is404: is404
-  };
-  objects.push(obj);
-}
-
-function spawnParticles(x, y) {
-  for (let i = 0; i < 10; i++) {
-    particles.push({
-      x: x,
-      y: y,
-      vx: random(-2, 2),
-      vy: random(-2, 2),
-      alpha: 255
-    });
-  }
-}
-
-function restartGame() {
-  score = 0;
-  objects = [];
-  particles = [];
-  gameOver = false;
-  document.getElementById('game-over').classList.remove('show');
-  spawnObject();
-}
-</script>
+    function windowResized() {
+      canvas.position((windowWidth - width) / 2, (windowHeight - height) / 2 - 50);
+    }
+  </script>
 </body>
 </html>
