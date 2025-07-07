@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kovidex Product Details - Vedax Pharma</title>
+    <link rel="icon" type="image/x-icon" href="../imgs/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../footer.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a href="index.html" class="back-button" title="Back to Home" aria-label="Back to Home">
+        <i class="fa fa-angle-left" style="font-size: 36px;"></i>
+    </a>
+    <br>
+    <header>
+        <nav>
+            <a href="../index.html"><img src="../imgs/logo.png" alt="Vedax Pharma" class="logo"></a>
+            <button class="hamburger" aria-label="Toggle menu">☰</button>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="../products" class="active">Products</a>
+                <a href="../about.html">About</a>
+                <a href="../available">Available At</a>
+                <a href="../contact.html">Contact</a>
+                <a href="../get.html" class="get-in-touch" onMouseOver="this.style.color='#1e3a8a'" onMouseOut="this.style.color='#fff'">Get in Touch</a>
+                <div class="nav-search">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                    <input type="text" id="navSearchInput" placeholder="Search Products..." aria-label="Search products">
+                    <button class="clear-search" id="clearSearch" aria-label="Clear search">✖</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="product-details" id="productDetails">
+    <br>
+    <div class="product-image">
+        <img src="./imgs/Kovidex-1.png" alt="KOVIDEX Syrup" id="productImage" class="main-image">
+        <div class="thumbnail-gallery">
+            <img src="./imgs/Kovidex-1.png" alt="KOVIDEX Syrup image 1" class="thumbnail" data-full="./imgs/Kovidex-1.png">
+            <img src="./imgs/Kovidex-2.png" alt="KOVIDEX Syrup image 2" class="thumbnail" data-full="./imgs/Kovidex-2.png">
+        </div>
+    </div>
+    <div class="product-info">
+        <h1>KOVIDEX Syrup</h1>
+        <h4>(Dextromethorphan Hydrobromide, Phenylephrine Hydrochloride & Chlorpheniramine Maleate Syrup)</h4>
+        <p><strong>Pack Size:</strong> 60 ml / 100 ml</p>
+
+        <div class="details">
+            <h3>Composition (per 5 ml)</h3>
+            <ul>
+                <li>Dextromethorphan Hydrobromide I.P. – 10 mg</li>
+                <li>Phenylephrine Hydrochloride I.P. – 5 mg</li>
+                <li>Chlorpheniramine Maleate I.P. – 2 mg</li>
+                <li>Flavored syrupy base – q.s.</li>
+            </ul>
+
+            <h3>Uses</h3>
+            <ul>
+                <li>Dry cough (non-productive cough)</li>
+                <li>Common cold and flu symptoms</li>
+                <li>Allergic rhinitis and sneezing</li>
+                <li>Nasal congestion and sinus pressure</li>
+                <li>Watery eyes and itchy throat</li>
+                <li>Cough from throat irritation and minor respiratory infections</li>
+            </ul>
+
+            <h3>Benefits</h3>
+            <ul>
+                <li><strong>Dextromethorphan:</strong> Suppresses the cough reflex at the brain level</li>
+                <li><strong>Phenylephrine:</strong> Relieves nasal and sinus congestion</li>
+                <li><strong>Chlorpheniramine:</strong> Manages sneezing, itching, and watery eyes</li>
+                <li>Triple-action formula for fast and broad relief</li>
+                <li>Non-sedating in most individuals at recommended doses</li>
+                <li>Pleasant flavor for improved compliance</li>
+            </ul>
+
+            <h3>Side Effects</h3>
+            <ul>
+                <li><strong>Common:</strong> Drowsiness, dry mouth, dizziness, nausea, headache</li>
+                <li><strong>Rare:</strong> Palpitations, allergic reactions, urinary difficulty, restlessness (esp. in children)</li>
+            </ul>
+
+            <h3>Safety Advice</h3>
+            <ul>
+                <li>Use under medical supervision, especially in children</li>
+                <li>Follow age-appropriate dosage as per label or physician’s instructions</li>
+                <li>Do not exceed the recommended dose</li>
+                <li>Avoid alcohol and other CNS depressants</li>
+                <li>Not for children under 6 years without a doctor’s advice</li>
+                <li>Consult a doctor if pregnant or breastfeeding</li>
+                <li>Use with caution in patients with hypertension, heart disease, diabetes, glaucoma, thyroid issues, or enlarged prostate</li>
+            </ul>
+
+            <h3>Storage Instructions</h3>
+            <ul>
+                <li>Store in a cool, dry place below 25°C</li>
+                <li>Protect from sunlight and moisture</li>
+                <li>Keep the bottle tightly closed after each use</li>
+                <li>Keep out of reach of children</li>
+            </ul>
+
+            <h3 style="color:red;">Disclaimer</h3>
+            <p style="background-color: red; color: white;">
+                KOVIDEX Syrup is a prescription medication. Use only as directed by a registered medical practitioner. The above information is for educational purposes only and should not replace medical advice.
+            </p>
+        </div>
+        <a href="contact.html" class="cta-button">Contact Us for More Info</a>
+    </div>
+</section>
+
+<div class="modal" id="imageModal" aria-label="Enlarged product image">
+    <div class="modal-content">
+        <span class="modal-close" id="modalClose" aria-label="Close modal">×</span>
+        <img src="./imgs/Kovidex-1.png" alt="KOVIDEX Syrup" id="modalImage">
+    </div>
+</div>
+
+
+
+     <footer>
+        <div class="footer-section">
+            <h3>ABOUT US</h3>
+            <img src="../imgs/logo.png" style="width: 150px;">
+            <p>Our company, Vedax Pharma, has had a long but fruitful journey during which we have successfully consolidated our market position.</p>
+            <a href="../about.html" class="read-more">Read More</a>
+        </div>
+        <div class="footer-section">
+            <h3>CONTACT US</h3>
+            <p>J-99, Radha Park Society, Opp. Sardar Estate, New VIP Road, Vadodara - 390019, Gujarat, India.</p>
+            <p><a href="tel:+916359157356">+91 63591 57356</a></p>
+            <p><a href="mailto:info@vedaxpharma.com">info@vedaxpharma.com</a></p>
+
+            <div class="social-links">
+                <a href="https://www.facebook.com/share/191Quj18k5/?mibextid=wwXIfr"><img src="../imgs/facebook.png" alt="Facebook"></a>
+                <a href="https://wa.me/916359157356"><img src="../imgs/whatsapp.png" alt="WhatsApp"></a>
+                <a href="https://www.instagram.com/vedaxpharmaofficial/"><img src="../imgs/instagram.png" alt="Instagram"></a>
+                <a href="https://www.threads.com/@vedaxpharmaofficial"><img src="../imgs/threads.png" alt="Threads"></a>
+            </div>
+        </div>
+    </footer>
+<div class="footer-legal">
+    <a href="https://mannkachhiya.github.io">Developed by Mann</a>
+    <div class="footer-copy">© 2025 Vedax Pharma. All rights reserved</div>
+    <a href="../privacy.html" class="terms">Privacy | Disclaimer</a>
+</div>
+
+    <script>
+        // Hamburger menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Search functionality with debounce
+        const navSearchInput = document.getElementById('navSearchInput');
+        const clearSearch = document.getElementById('clearSearch');
+
+        // Debounce function
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // Search function (redirects to products page)
+        const performSearch = (query) => {
+            query = query.trim().toLowerCase().replace(/[^a-z0-9\s]/g, '');
+            if (query) {
+                window.location.href = `products.html?search=${encodeURIComponent(query)}`;
+            }
+        };
+
+        // Debounced search
+        const debouncedSearch = debounce(performSearch, 300);
+
+        // Search input event
+        navSearchInput.addEventListener('input', () => {
+            const query = navSearchInput.value;
+            clearSearch.style.display = query ? 'block' : 'none';
+            debouncedSearch(query);
+        });
+
+        // Clear search
+        clearSearch.addEventListener('click', () => {
+            navSearchInput.value = '';
+            clearSearch.style.display = 'none';
+            navSearchInput.focus();
+        });
+
+        // Keyboard accessibility
+        navSearchInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                performSearch(navSearchInput.value);
+            }
+            if (e.key === 'Escape') {
+                clearSearch.click();
+            }
+        });
+
+        // Modal and thumbnail functionality
+        const productImage = document.getElementById('productImage');
+        const imageModal = document.getElementById('imageModal');
+        const modalClose = document.getElementById('modalClose');
+        const modalImage = document.getElementById('modalImage');
+        const thumbnails = document.querySelectorAll('.thumbnail');
+        let currentImageIndex = 0;
+        const slideshowInterval = 7000; // Change image every 7 seconds
+
+        // Set initial active thumbnail
+        thumbnails[0].classList.add('active');
+
+        // Function to change image with fade animation
+        function changeImage(index) {
+            // Add fade class to start fading out
+            productImage.classList.add('fade');
+            modalImage.classList.add('fade');
+
+            setTimeout(() => {
+                // Update thumbnail active state
+                thumbnails.forEach(t => t.classList.remove('active'));
+                thumbnails[index].classList.add('active');
+
+                // Update images
+                const fullImage = thumbnails[index].getAttribute('data-full');
+                productImage.src = fullImage;
+                productImage.alt = thumbnails[index].alt;
+                modalImage.src = fullImage;
+                modalImage.alt = thumbnails[index].alt;
+
+                // Remove fade class to fade in
+                productImage.classList.remove('fade');
+                modalImage.classList.remove('fade');
+            }, 500); // Match the CSS transition duration
+        }
+
+        // Automatic slideshow
+        function startSlideshow() {
+            setInterval(() => {
+                currentImageIndex = (currentImageIndex + 1) % thumbnails.length;
+                changeImage(currentImageIndex);
+            }, slideshowInterval);
+        }
+
+        // Thumbnail click handler
+        thumbnails.forEach((thumbnail, index) => {
+            thumbnail.addEventListener('click', () => {
+                currentImageIndex = index;
+                changeImage(index);
+            });
+        });
+
+        // Open modal on main image click
+        productImage.addEventListener('click', () => {
+            imageModal.style.display = 'flex';
+        });
+
+        // Close modal
+        modalClose.addEventListener('click', () => {
+            imageModal.style.display = 'none';
+        });
+
+        // Close modal when clicking outside the image
+        imageModal.addEventListener('click', (e) => {
+            if (e.target === imageModal) {
+                imageModal.style.display = 'none';
+            }
+        });
+
+        // Keyboard accessibility for modal
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && imageModal.style.display === 'flex') {
+                imageModal.style.display = 'none';
+            }
+        });
+
+        // Start the slideshow
+        startSlideshow();
+    </script>
+</body>
+</html>
