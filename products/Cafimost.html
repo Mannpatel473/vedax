@@ -349,8 +349,6 @@
     font-size: 0.9rem;
     color: black;
     border-top: 1px solid #e6e6e6;
-    margin: 0; /* Removes vertical spacing */
-    background: none; /* Removes background */
 }
 
 .footer-legal a {
@@ -369,6 +367,23 @@
     color: black;
 }
 
+@media (max-width: 600px) {
+    .footer-legal {
+        font-size: 0.75rem;
+        flex-direction: column; 
+        text-align: center;
+        gap: 0.3rem; 
+    }
+
+    .footer-copy {
+        font-size: 0.75rem;
+        padding: 0.3rem 10px;
+    }
+
+    .footer-legal a {
+        font-size: 0.75rem;
+    }
+}
 
 
         /* Animations */
