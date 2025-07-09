@@ -263,9 +263,17 @@
             font-size: clamp(0.85rem, 2vw, 0.95rem);
         }
 
-        .footer-legal a {
+        .footer-legal {
+    display: flex;
+    justify-content: center; /* Centers links horizontally */
+    gap: 1rem; /* Adds space between each link */
+    margin-bottom: 1rem; /* Adds space below the footer links */
+}
+
+.footer-legal a {
     color: black;
     text-decoration: none;
+    transition: text-decoration 0.2s ease-in-out;
 }
 
 .footer-legal a:hover {
@@ -282,8 +290,9 @@
 @media (max-width: 600px) {
     .footer-legal {
         font-size: 0.75rem;
-        text-align: center;
-        gap: 0.3rem; 
+        flex-direction: column; /* Stacks the links vertically on small screens */
+        align-items: center; /* Centers the links */
+        gap: 0.5rem; /* Adjusts the gap between the links */
     }
 
     .footer-copy {
@@ -295,6 +304,7 @@
         font-size: 0.75rem;
     }
 }
+
 
         /* Animations */
         @keyframes fadein {
