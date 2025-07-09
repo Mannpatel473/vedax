@@ -264,52 +264,54 @@
         }
 /*-------------------------------------------------------------------------------------------------------------------*/
        .footer-legal {
-            background: #1e3a8a;
-            color: white;
-            text-align: center;
-            padding: 0.5rem 0;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 1rem;
-        }
+    color: white;
+    text-align: center;
+    padding: 0.5rem 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-between; /* Align content to left and right */
+    align-items: center;
+    gap: 1rem;
+    padding-left: 10px; /* Add padding for some spacing from the left */
+    padding-right: 10px; /* Add padding for some spacing from the right */
+}
 
-        .footer-legal a {
-            color: white;
-            text-decoration: none;
-        }
+.footer-legal a {
+    color: white;
+    text-decoration: none;
+}
 
-        .footer-legal a:hover {
-            text-decoration: underline;
-        }
+.footer-legal a:hover {
+    text-decoration: underline;
+}
 
-        .footer-copy {
-            font-size: 0.9rem;
-            color: white;
-        }
+.footer-copy {
+    font-size: 0.9rem;
+    color: white;
+}
 
-        @media (max-width: 600px) {
-            .footer-legal {
-                font-size: 0.75rem;
-                text-align: center;
-                gap: 0.3rem;
-                flex-direction: column;
-            }
+@media (max-width: 600px) {
+    .footer-legal {
+        font-size: 0.75rem;
+        text-align: center;
+        gap: 0.3rem;
+        justify-content: center; /* Center content on smaller screens */
+    }
 
-            .footer-copy {
-                font-size: 0.75rem;
-                padding: 0.3rem 10px;
-            }
+    .footer-copy {
+        font-size: 0.75rem;
+        padding: 0.3rem 10px;
+    }
 
-            .footer-legal a {
-                font-size: 0.75rem;
-            }
-        }
+    .footer-legal a {
+        font-size: 0.75rem;
+    }
+}
+
 
 
 
