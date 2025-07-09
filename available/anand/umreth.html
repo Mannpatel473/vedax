@@ -263,95 +263,38 @@
             font-size: clamp(0.85rem, 2vw, 0.95rem);
         }
 
-        /* Footer Styles 
-        footer {
-            background: linear-gradient(90deg, #4fc49fcd, #eb9124d8);
-            color: white;
-            padding: 1.5rem 20px;
-            display: flex;
-            justify-content: space-around;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            text-align: center;
-            width: 100%;
-            margin-top: auto;
-        }
+        .footer-legal a {
+    color: black;
+    text-decoration: none;
+}
 
-        .footer-section {
-            margin: 0.5rem 0;
-            max-width: 40%;
-        }
+.footer-legal a:hover {
+    text-decoration: underline;
+}
 
-        .footer-section h3 {
-            margin-bottom: 0.5rem;
-            font-size: 1.2rem;
-        }
+.footer-copy {
+    text-align: center;
+    font-size: 0.9rem;
+    padding: 0.5rem 20px;
+    color: black;
+}
 
-        .footer-section p {
-            margin: 0 0 0.5rem;
-            font-size: 0.9rem;
-        }
+@media (max-width: 600px) {
+    .footer-legal {
+        font-size: 0.75rem;
+        text-align: center;
+        gap: 0.3rem; 
+    }
 
-        .read-more {
-            background: #2dd4bf;
-            color: #1e3a8a;
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-block;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
+    .footer-copy {
+        font-size: 0.75rem;
+        padding: 0.3rem 10px;
+    }
 
-        .read-more:hover {
-            background-color: #facc15;
-            transform: scale(1.05);
-            color: #eb9324;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            margin-top: 0.5rem;
-        }
-
-        .social-links a {
-            color: white;
-            font-size: 1.5rem;
-            transition: transform 0.3s ease;
-        }
-
-        .social-links a:hover {
-            transform: scale(1.2);
-        }
-
-        /* Responsive Design for Footer 
-        @media (max-width: 768px) {
-            footer {
-                flex-direction: column;
-                padding: 1rem;
-            }
-
-            .footer-section {
-                max-width: 100%;
-                text-align: center;
-            }
-
-            .social-links a {
-                font-size: 1.2rem;
-            }
-        }
-
-        .social-links img {
-            width: 30px;
-            height: 30px;
-            transition: transform 0.3s ease;
-        }
-
-        .social-links img:hover {
-            transform: scale(1.2);
-        }
+    .footer-legal a {
+        font-size: 0.75rem;
+    }
+}
 
         /* Animations */
         @keyframes fadein {
@@ -527,7 +470,7 @@
         </a>
         <div class="left-column" aria-label="City list">
             <h2>Town</h2>
-            <div class="pill" onclick="navigateTo('umreth.html')">umreth</div>
+            <div class="pill" onclick="navigateTo('umreth.html')">Umreth</div>
         </div>
 
         <div class="right-column" aria-label="Medical stores list">
@@ -546,8 +489,8 @@
         <div class="footer-section">
             <h3>CONTACT US</h3>
             <p>J-99, Radha Park Society, Opp. Sardar Estate, New VIP Road, Vadodara - 390019, Gujarat, India.</p>
-            <p>+91 63591 57356</p>
-            <p>info@vedaxpharma.com</p>
+            <p><a href="tel:+916359157356">+91 63591 57356</a></p>
+            <p><a href="mailto:info@vedaxpharma.com">info@vedaxpharma.com</a></p>
             <div class="social-links">
                 <a href="https://www.facebook.com/share/191Quj18k5/?mibextid=wwXIfr"><img src="../../imgs/facebook.png" alt="Facebook"></a>
                 <a href="https://wa.me/916359157356"><img src="../../imgs/whatsapp.png" alt="WhatsApp"></a>
@@ -556,6 +499,13 @@
             </div>
         </div>
     </footer>
+    <div class="footer-legal">
+   <a href="https://techexzakt.pages.dev/">
+         Developed by <img src="../../imgs/Tech_Exzakt_logo.png" alt="Tech Exzakt" style="height: 25px; vertical-align: middle; margin-left: 5px;">
+    </a>
+    <div class="footer-copy">© 2025 Vedax Pharma. All rights reserved</div>
+    <a href="../../privacy.html" class="terms">Privacy | Disclaimer</a>
+</div>
 
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script>
