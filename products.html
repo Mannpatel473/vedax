@@ -617,29 +617,88 @@
     <a href="../privacy.html" class="terms">Privacy | Disclaimer</a>
 </div>
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-    <script>
-
-        // Hamburger menu toggle
-        const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.querySelector('.nav-links');
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
+   <script>
         document.addEventListener('DOMContentLoaded', () => {
-    const searchInput = document.getElementById('navSearchInput');
-    const clearSearch = document.getElementById('clearSearch');
-    const productGrid = document.getElementById('productGrid');
-    const productCards = document.querySelectorAll('.product-card');
-    const noResults = document.getElementById('noResults');
+            const searchInput = document.getElementById('navSearchInput');
+            const clearSearch = document.getElementById('clearSearch');
+            const productGrid = document.getElementById('productGrid');
+            const productCards = document.querySelectorAll('.product-card');
+            const noResults = document.getElementById('noResults');
 
-    // Hamburger menu toggle
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
-    hamburger.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-    });
+            // Hamburger menu toggle
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
 
-    
+            // Function to get URL parameter
+            function getUrlParameter(name) {
+                name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+                const regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+                const results = regex.exec(location.search);
+                return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+            }
+
+            // Function to update URL with search query
+            function updateUrl(query) {
+                const baseUrl = window.location.pathname;
+                const newUrl = query ? `${baseUrl}?search=${encodeURIComponent(query)}` : baseUrl;
+                window.history.pushState({}, '', newUrl);
+            }
+
+            // Function to filter products
+            function filterProducts(query) {
+                query = query.toLowerCase().trim();
+                let hasResults = false;
+
+                productCards.forEach(card => {
+                    const title = card.querySelector('h3').textContent.toLowerCase();
+                    const description = card.querySelector('p').textContent.toLowerCase();
+                    const isMatch = title.includes(query) || description.includes(query);
+
+                    if (isMatch) {
+                        card.classList.remove('hidden');
+                        hasResults = true;
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+
+                noResults.style.display = hasResults ? 'none' : 'block';
+                clearSearch.style.display = query ? 'block' : 'none';
+            }
+
+            // Initialize search from URL parameter
+            const initialQuery = getUrlParameter('search');
+            if (initialQuery) {
+                searchInput.value = initialQuery;
+                filterProducts(initialQuery);
+            }
+
+            // Search input event listener
+            searchInput.addEventListener('input', () => {
+                const query = searchInput.value;
+                updateUrl(query);
+                filterProducts(query);
+            });
+
+            // Clear search button event listener
+            clearSearch.addEventListener('click', () => {
+                searchInput.value = '';
+                updateUrl('');
+                filterProducts('');
+                clearSearch.style.display = 'none';
+            });
+
+            // Handle Enter key to prevent form submission
+            searchInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    filterProducts(searchInput.value);
+                }
+            });
+        });
+    </script>
 </body>
 </html>
