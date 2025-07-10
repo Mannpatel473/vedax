@@ -371,12 +371,15 @@ position: fixed;
         border: 1px solid #eb9324;
     }
 
+   /*
     .product-card:nth-child(1) { animation: flipIn 0.8s ease-out 0.2s forwards; }
     .product-card:nth-child(2) { animation: flipIn 0.8s ease-out 0.4s forwards; }
     .product-card:nth-child(3) { animation: flipIn 0.8s ease-out 0.6s forwards; }
     .product-card:nth-child(4) { animation: flipIn 0.8s ease-out 0.8s forwards; }
     .product-card:nth-child(5) { animation: flipIn 0.8s ease-out 1.0s forwards; }
+   */
 
+   
     .product-card:hover {
         transform: translateY(-10px) rotate(2deg);
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
@@ -737,10 +740,10 @@ position: fixed;
         to { opacity: 1; }
     }
 
-    @keyframes flipIn {
+    /*@keyframes flipIn {
         from { opacity: 0; transform: perspective(400px) rotateY(-90deg); }
         to { opacity: 1; transform: perspective(400px) rotateY(0deg); }
-    }
+    }*/
 
     @keyframes glow {
         0%, 100% { box-shadow: 0 0 15px rgba(250, 204, 21, 0.5); }
@@ -1026,7 +1029,7 @@ position: fixed;
    
 
 <section class="products" id="products">
-     <a href="products"><h2>Our <span class="highlight">Products</span></h2></a>
+     <a href="products"><h2>High <span class="highlight">Demand Range</span></h2></a>
     <div class="product-grid">
         <div class="product-card">
             <img src="products/imgs/Cafimost-1.png" alt="Cetirizine Tablets">
