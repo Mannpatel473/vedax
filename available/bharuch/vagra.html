@@ -532,12 +532,12 @@ footer {
             <div class="pill" onclick="navigateTo('nana_sanja.html')">NANA SANJA</div>
             <div class="pill" onclick="navigateTo('netrang.html')">NETRANG</div>
             <div class="pill" onclick="navigateTo('rajpardi.html')">RAJPARDI</div>
-            <div class="pill" onclick="navigateTo('vagra.html')">VAGRA</div>
+            <div class="pill active" onclick="navigateTo('vagra.html')">VAGRA</div>
         </div>
 
         <div class="right-column" aria-label="Medical stores list">
             <h2>Medicals</h2>
-            <div class="card" onclick="navigateTo('https://maps.app.goo.gl/c4iHcU2YYUKSJMbBA')"><h3>ROYAL MEDICAL</h3></div>
+            <div class="card" onclick="navigateTo('https://maps.app.goo.gl/c4iHcU2YYUKSJMbBA', '_blank')"><h3>ROYAL MEDICAL</h3></div>
         </div>
     </div>
 
@@ -576,11 +576,16 @@ footer {
 
     <script>
         // Navigation function for clickable pills and cards
-        function navigateTo(url) {
+        function navigateTo(url, target) {
             if (url && url !== '#') {
-                window.location.href = url;
+                if (target === '_blank') {
+                    window.open(url, '_blank');
+                } else {
+                    window.location.href = url;
+                }
             }
         }
+
 
         // Hamburger menu toggle
         document.querySelector('.hamburger').addEventListener('click', function() {
