@@ -1316,13 +1316,29 @@ position: fixed;
         return gk_fileData[filename] || "";
     }
 
-    // Hide preloader after page load
+    /*// Hide preloader after page load
     window.addEventListener('load', () => {
         const preloader = document.getElementById('preloader');
         setTimeout(() => {
             preloader.classList.add('hidden');
         }, 100);
+    });*/
+
+
+    const preloader = document.getElementById('preloader');
+
+    // Always hide after 100ms, even if load event doesn't fire
+    setTimeout(() => {
+        preloader.classList.add('hidden');
+    }, 100);
+
+    // Also hide when the page fully loads (optional safety)
+    window.addEventListener('load', () => {
+        preloader.classList.add('hidden');
     });
+
+
+   
 
     // Hamburger menu toggle
     const hamburger = document.querySelector('.hamburger');
