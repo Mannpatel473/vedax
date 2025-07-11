@@ -525,7 +525,7 @@ footer {
         </a>
         <div class="left-column" aria-label="City list">
             <h2>Town</h2>
-            <div class="pill" onclick="navigateTo('bodeli.html')">BODELI</div>
+            <div class="pill active" onclick="navigateTo('bodeli.html')">BODELI</div>
             <div class="pill" onclick="navigateTo('chhota_udepur.html')">CHHOTA UDEPUR</div>
             <div class="pill" onclick="navigateTo('jabugam.html')">JABUGAM</div>
             <div class="pill" onclick="navigateTo('kawant.html')">KAWANT</div>
@@ -535,10 +535,10 @@ footer {
 
         <div class="right-column" aria-label="Medical stores list">
             <h2>Medicals</h2>
-            <div class="card" onclick="navigateTo('https://maps.app.goo.gl/MGBVmrQPGFT75odNA')"><h3>A T MEDICAL</h3></div>
-            <div class="card" onclick="navigateTo('https://maps.app.goo.gl/LcsFp5AAiME9iWVj6')"><h3>B G SHAH MEDICAL</h3></div>
-            <div class="card" onclick="navigateTo('https://maps.app.goo.gl/MTD2dWfh5GyFsbur5')"><h3>KABIR MEDICAL</h3></div>
-            <div class="card" onclick="navigateTo('https://maps.app.goo.gl/SzBNFZfm8vamvGZe9')"><h3>VRAJ MEDICAL</h3></div>
+            <div class="card" onclick="navigateTo('https://maps.app.goo.gl/MGBVmrQPGFT75odNA', '_blank')"><h3>A T MEDICAL</h3></div>
+            <div class="card" onclick="navigateTo('https://maps.app.goo.gl/LcsFp5AAiME9iWVj6', '_blank')"><h3>B G SHAH MEDICAL</h3></div>
+            <div class="card" onclick="navigateTo('https://maps.app.goo.gl/MTD2dWfh5GyFsbur5', '_blank')"><h3>KABIR MEDICAL</h3></div>
+            <div class="card" onclick="navigateTo('https://maps.app.goo.gl/SzBNFZfm8vamvGZe9', '_blank')"><h3>VRAJ MEDICAL</h3></div>
         </div>
     </div>
 
@@ -577,11 +577,16 @@ footer {
 
     <script>
         // Navigation function for clickable pills and cards
-        function navigateTo(url) {
+        function navigateTo(url, target) {
             if (url && url !== '#') {
-                window.location.href = url;
+                if (target === '_blank') {
+                    window.open(url, '_blank');
+                } else {
+                    window.location.href = url;
+                }
             }
         }
+
 
         // Hamburger menu toggle
         document.querySelector('.hamburger').addEventListener('click', function() {
