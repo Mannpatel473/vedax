@@ -581,11 +581,16 @@ footer {
 
     <script>
         // Navigation function for clickable pills and cards
-        function navigateTo(url) {
+        function navigateTo(url, target) {
             if (url && url !== '#') {
-                window.location.href = url;
+                if (target === '_blank') {
+                    window.open(url, '_blank');
+                } else {
+                    window.location.href = url;
+                }
             }
         }
+
 
         // Hamburger menu toggle
         document.querySelector('.hamburger').addEventListener('click', function() {
