@@ -615,7 +615,7 @@
                     <img src="./imgs/OrnitraOC-1.png" >
                     <div class="product-text">
                         <h3>Ornitra OC</h3>
-                        <p>• Itraconazole – 1.0% w/w <br> • Ofloxacin – 0.75% w/w <br> • Ornidazole – 2.0% w/w <br> • Clobetasol Propionate – 0.05% w/w <br> • Cream base – q.s.</p>
+                        <p>• Itraconazole I.P. – 1.0% w/w <br> • Ofloxacin I.P. – 0.75% w/w <br> • Ornidazole I.P. – 2.0% w/w <br> • Clobetasol Propionate I.P. – 0.05% w/w <br> • Methylparaben IP (As preservative) – 0.2% w/w <br> • Propylparaben IP (As preservative) – 0.2% w/w <br> • In a Cream base – q.s.</p>
                     </div>
                 </div>
             </div></a>
@@ -805,15 +805,7 @@
 </div>
 
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-    <script>
-        // Hide preloader after page load
-        window.addEventListener('load', () => {
-            const preloader = document.getElementById('preloader');
-            setTimeout(() => {
-                preloader.classList.add('hidden');
-            }, 1500);
-        });
-
+     <script>
         // Hamburger menu toggle
         const hamburger = document.querySelector('.hamburger');
         const navLinks = document.querySelector('.nav-links');
@@ -824,9 +816,6 @@
         // Search functionality with debounce
         const navSearchInput = document.getElementById('navSearchInput');
         const clearSearch = document.getElementById('clearSearch');
-        const productGrid = document.getElementById('productGrid');
-        const productCards = productGrid.querySelectorAll('.product-card');
-        const noResults = document.getElementById('noResults');
 
         // Debounce function
         function debounce(func, wait) {
@@ -841,27 +830,12 @@
             };
         }
 
-        // Search function
+        // Search function (redirects to products page)
         const performSearch = (query) => {
             query = query.trim().toLowerCase().replace(/[^a-z0-9\s]/g, '');
-            let hasResults = false;
-
-            productCards.forEach(card => {
-                const title = card.querySelector('h3').textContent.toLowerCase();
-                const description = card.querySelector('p').textContent.toLowerCase();
-                const matches = title.includes(query) || description.includes(query);
-
-                if (matches) {
-                    card.classList.remove('hidden');
-                    card.style.animation = 'none';
-                    hasResults = true;
-                } else {
-                    card.classList.add('hidden');
-                }
-            });
-
-            noResults.style.display = hasResults || !query ? 'none' : 'block';
-            clearSearch.style.display = query ? 'block' : 'none';
+            if (query) {
+                window.location.href = `products.html?search=${encodeURIComponent(query)}`;
+            }
         };
 
         // Debounced search
@@ -870,17 +844,13 @@
         // Search input event
         navSearchInput.addEventListener('input', () => {
             const query = navSearchInput.value;
+            clearSearch.style.display = query ? 'block' : 'none';
             debouncedSearch(query);
         });
 
         // Clear search
         clearSearch.addEventListener('click', () => {
             navSearchInput.value = '';
-            productCards.forEach(card => {
-                card.classList.remove('hidden');
-                card.style.animation = 'flipin 0.8s ease-out';
-            });
-            noResults.style.display = 'none';
             clearSearch.style.display = 'none';
             navSearchInput.focus();
         });
@@ -894,7 +864,91 @@
                 clearSearch.click();
             }
         });
+
+        // Modal and thumbnail functionality
+        const productImage = document.getElementById('productImage');
+        const imageModal = document.getElementById('imageModal');
+        const modalClose = document.getElementById('modalClose');
+        const modalImage = document.getElementById('modalImage');
+        const thumbnails = document.querySelectorAll('.thumbnail');
+        let currentImageIndex = 0;
+        const slideshowInterval = 7000; // Change image every 7 seconds
+
+        // Set initial active thumbnail
+        thumbnails[0].classList.add('active');
+
+        // Function to change image with fade animation
+        function changeImage(index) {
+            // Add fade class to start fading out
+            productImage.classList.add('fade');
+            modalImage.classList.add('fade');
+
+            setTimeout(() => {
+                // Update thumbnail active state
+                thumbnails.forEach(t => t.classList.remove('active'));
+                thumbnails[index].classList.add('active');
+
+                // Update images
+                const fullImage = thumbnails[index].getAttribute('data-full');
+                productImage.src = fullImage;
+                productImage.alt = thumbnails[index].alt;
+                modalImage.src = fullImage;
+                modalImage.alt = thumbnails[index].alt;
+
+                // Remove fade class to fade in
+                productImage.classList.remove('fade');
+                modalImage.classList.remove('fade');
+            }, 500); // Match the CSS transition duration
+        }
+
+        // Automatic slideshow
+        function startSlideshow() {
+            setInterval(() => {
+                currentImageIndex = (currentImageIndex + 1) % thumbnails.length;
+                changeImage(currentImageIndex);
+            }, slideshowInterval);
+        }
+
+        // Thumbnail click handler
+        thumbnails.forEach((thumbnail, index) => {
+            thumbnail.addEventListener('click', () => {
+                currentImageIndex = index;
+                changeImage(index);
+            });
+        });
+
+        // Open modal on main image click
+        productImage.addEventListener('click', () => {
+            imageModal.style.display = 'flex';
+        });
+
+        // Close modal
+        modalClose.addEventListener('click', () => {
+            imageModal.style.display = 'none';
+        });
+
+        // Close modal when clicking outside the image
+        imageModal.addEventListener('click', (e) => {
+            if (e.target === imageModal) {
+                imageModal.style.display = 'none';
+            }
+        });
+
+        // Keyboard accessibility for modal
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && imageModal.style.display === 'flex') {
+                imageModal.style.display = 'none';
+            }
+        });
+
+        // Start the slideshow
+        startSlideshow();
     </script>
-    <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'936e6a618b321d6a',t:'MTc0NTc1NzkxMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+<script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+
 </body>
 </html>
