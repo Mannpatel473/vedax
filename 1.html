@@ -1330,7 +1330,7 @@ position: fixed;
     // Always hide after 100ms, even if load event doesn't fire
     setTimeout(() => {
         preloader.classList.add('hidden');
-    }, 500);
+    }, 1000);
 
     // Also hide when the page fully loads (optional safety)
     window.addEventListener('load', () => {
