@@ -548,15 +548,8 @@ footer {
                 
                 <label for="number">Phone Number</label>
                 <!--input type="number" id="phone" name="entry.1386492628" required aria-label="Your Phone Number" -->
-
-
-                <input type="tel" id="phone" name="entry.1386492628" required aria-label="Your Phone Number" value="+91 " onfocus="if(this.value === '+91 ') this.setSelectionRange(this.value.length, this.value.length);">
-
-
-
-
-
-                
+                <input type="tel" id="phone" name="entry.1386492628" required aria-label="Your Phone Number" maxlength="10" pattern="\d{10}" inputmode="numeric"">
+    
                 <label for="message">Message</label>
                 <textarea id="message" name="entry.1912990133" required aria-label="Your message"></textarea>
                 <input type="hidden" id="States" name="entry.1429364416" value="1">
