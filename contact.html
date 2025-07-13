@@ -550,18 +550,10 @@ footer {
                 <!--input type="number" id="phone" name="entry.1386492628" required aria-label="Your Phone Number" -->
 
 
-                <div style="display: flex; align-items: center;">
-  <span style="padding: 12px; color: #1e3a8a; border-top-left-radius: 0.5rem; border-bottom-left-radius: 0.5rem;">
-    +91
-  </span>
-  <input
-    type="number"
-    id="phone"
-    name="entry.1386492628"
-    required
-    aria-label="Your Phone Number"
-  >
-</div>
+                <input type="tel" id="phone" name="entry.1386492628" required aria-label="Your Phone Number" value="+91 " onfocus="if(this.value === '+91 ') this.setSelectionRange(this.value.length, this.value.length);"
+  style="padding: 12px; border-radius: 0.5rem; border: 1px solid #ccc; font-size: 16px; color: #1e3a8a; width: 100%; box-sizing: border-box;"
+>
+
 
 
 
