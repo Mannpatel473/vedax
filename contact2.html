@@ -534,13 +534,16 @@ footer {
         </nav>
     </header>
 
-    <script type="text/javascript">var submitted=false;</script>
-<iframe name="hidden_iframe" id="hidden_iframe" style="display: none" onload="if(submitted){window.location='sf.html';}"></iframe>
+    <script type="text/javascript">var submitted = false;</script>
+<iframe name="hidden_iframe" id="hidden_iframe" style="display: none" 
+        onload="if(submitted){window.location='sf.html';}">
+</iframe>
+
 
     <section class="contact" id="contact">
         <div class="contact-form">
             <h2>Contact us</h2>
-            <form action="https://docs.google.com/forms/u/0/d/e//formResponse" method="post" target="hidden_iframe" onsubmit="submitted=true"  class="form" id="form1">
+            <form action="" method="post" target="hidden_iframe" onsubmit="submitted=true; return checkRecaptcha();" class="form" id="form1">
                 <label for="name">Name <span style="color: red;">*</span></label>
                 <input type="text" id="name" name="entry.1570530803" required aria-label="Your name">
                 
