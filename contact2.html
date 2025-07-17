@@ -603,6 +603,17 @@ footer {
     <a href="./privacy.html" class="terms">Privacy | Disclaimer</a>
 </div>
 
+<!-- Check reCAPTCHA before submit -->
+    <script>
+  function checkRecaptcha() {
+    var response = grecaptcha.getResponse();
+    if (response.length === 0) {
+      alert("Please complete the reCAPTCHA.");
+      return false;
+    }
+    return true; // allow form to submit
+  }
+</script>
     
     <script>
         // Hamburger menu toggle
