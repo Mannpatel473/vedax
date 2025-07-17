@@ -638,13 +638,15 @@
         </nav>
     </header>
 
-    <script type="text/javascript">var submitted=false;</script>
-    <iframe name="hidden_iframe" id="hidden_iframe" style="display: none" onload="if(submitted){window.location='sf.html';}"></iframe>
+    <script type="text/javascript">var submitted = false;</script>
+<iframe name="hidden_iframe" id="hidden_iframe" style="display: none" 
+        onload="if(submitted){window.location='sf.html';}">
+</iframe>
 
     <section class="contact" id="contact">
         <div class="contact-form">
             <h2>Get in Touch</h2>
-            <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdCQuOPFEEm9i_1dsXqNvp2TsKaujNwKYcGTUOO3kVJIF-sAg/formResponse" method="post" target="hidden_iframe" onsubmit="submitted=true" class="form" id="form1">
+            <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdCQuOPFEEm9i_1dsXqNvp2TsKaujNwKYcGTUOO3kVJIF-sAg/formResponse" method="post" target="hidden_iframe" onsubmit="submitted=true; return checkRecaptcha();" class="form" id="form1">
                 <label for="name">Name <span style="color: red;">*</span></label>
                 <input type="text" id="name" name="entry.2070999575" required aria-label="Your name">
 
@@ -826,6 +828,20 @@
 </div>
 
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+
+
+    <!-- Check reCAPTCHA before submit -->
+    <script>
+  function checkRecaptcha() {
+    var response = grecaptcha.getResponse();
+    if (response.length === 0) {
+      alert("Please complete the reCAPTCHA.");
+      return false;
+    }
+    return true; // allow form to submit
+  }
+</script>
+    
     <script>
         // Hamburger menu toggle
         const hamburger = document.querySelector('.hamburger');
