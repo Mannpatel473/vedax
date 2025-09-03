@@ -1,4 +1,3 @@
-<meta http-equiv="refresh" content="0;url=Maintenance.html">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,24 +30,23 @@
         }
 
         .logo {
-        width: 180px;
-        height: auto;
+            width: 180px;
+            height: auto;
         }
 
-         /* Header */
+        /* Header */
         header {
-    background: linear-gradient(90deg, rgba(79, 196, 159, 0.8), rgba(235, 145, 36, 0.8));
-    color: white;
-    padding: 1rem 0;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    
-    backdrop-filter: blur(10px); /* Blur effect */
-    -webkit-backdrop-filter: blur(10px); /* Safari support */
-}
+            background: linear-gradient(90deg, rgba(79, 196, 159, 0.8), rgba(235, 145, 36, 0.8));
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
 
         nav {
             max-width: 1200px;
@@ -148,19 +146,19 @@
         }
 
         .get-in-touch {
-        background: #facc15;
-        color: #eb9324;
-        padding: 0.5rem 1.5rem;
-        border-radius: 50px;
-        font-weight: 600;
-        margin-left: 25px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+            background: #facc15;
+            color: #eb9324;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-left: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-    .get-in-touch:hover {
-        transform: scale(1.1);
-        box-shadow: 0 0 15px rgba(250, 204, 21, 0.5);
-    }
+        .get-in-touch:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(250, 204, 21, 0.5);
+        }
 
         .hamburger {
             display: none;
@@ -170,7 +168,6 @@
             color: white;
             cursor: pointer;
         }
-
 
         /* Contact Section */
         .contact {
@@ -307,85 +304,73 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
-       /* Footer */ /* Footer Styles 
-footer {
-    background: linear-gradient(90deg, #4fc49fcd, #eb9124d8);
-    color: white;
-    padding: 1.5rem 20px;
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    text-align: center;
-}
+        .error-message {
+            color: red;
+            font-size: clamp(0.85rem, 2.5vw, 0.95rem);
+            margin-top: 0.5rem;
+            display: none;
+        }
 
-.footer-section {
-    margin: 0.5rem 0;
-    max-width: 40%;
-}
+        /* Footer *
+        footer {
+            background: linear-gradient(90deg, #4fc49fcd, #eb9124d8);
+            color: white;
+            padding: 1.5rem 20px;
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            text-align: center;
+        }
 
-.footer-section h3 {
-    margin-bottom: 0.5rem;
-    font-size: 1.2rem;
-}
+        .footer-section {
+            margin: 0.5rem 0;
+            max-width: 40%;
+        }
 
-.footer-section p {
-    margin: 0 0 0.5rem;
-    font-size: 0.9rem;
-}
+        .footer-section h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
 
-.read-more {
-    background: #2dd4bf;
-    color: #1e3a8a;
-    padding: 0.5rem 1rem;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    display: inline-block;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
+        .footer-section p {
+            margin: 0 0 0.5rem;
+            font-size: 0.9rem;
+        }
 
-.read-more:hover {
-    background-color: #facc15;
-    transform: scale(1.05);
-    color: #eb9324;
-}
+        .read-more {
+            background: #2dd4bf;
+            color: #1e3a8a;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
 
-.social-links {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    margin-top: 0.5rem;
-}
+        .read-more:hover {
+            background-color: #facc15;
+            transform: scale(1.05);
+            color: #eb9324;
+        }
 
-.social-links a {
-    color: white;
-    font-size: 1.5rem;
-    transition: transform 0.3s ease;
-}
+        .social-links {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 0.5rem;
+        }
 
-.social-links a:hover {
-    transform: scale(1.2);
-}
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
 
-
-
-    /* Responsive Design for Footer 
-    @media (max-width: 768px) {
-    footer {
-        flex-direction: column;
-        padding: 1rem;
-    }
-
-    .footer-section {
-        max-width: 100%;
-        text-align: center;
-    }
-
-    .social-links a {
-        font-size: 1.2rem;
-    }
-}
+        .social-links a:hover {
+            transform: scale(1.2);
+        }
 
         .social-links img {
             width: 30px;
@@ -396,7 +381,23 @@ footer {
         .social-links img:hover {
             transform: scale(1.2);
         }
-        */
+
+        /* Responsive Design for Footer */
+        @media (max-width: 768px) {
+            footer {
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            .footer-section {
+                max-width: 100%;
+                text-align: center;
+            }
+
+            .social-links a {
+                font-size: 1.2rem;
+            }
+        }
 
         /* Animations */
         @keyframes capsulespin {
@@ -518,14 +519,14 @@ footer {
     <header>
         <nav>
             <a href="index.html"><img src="./imgs/logo.png" alt="Vedax Pharma" class="logo"></a>
-        <button class="hamburger" aria-label="Toggle menu">☰</button>
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="products">Products</a>
-            <a href="about.html">About</a>
-            <a href="available">Available At</a>
-            <a href="" class="active">Contact</a>
-            <a href="get.html" class="get-in-touch" onMouseOver="this.style.color='#1e3a8a'" onMouseOut="this.style.color='#fff'">Get in Touch</a>
+            <button class="hamburger" aria-label="Toggle menu">☰</button>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="products">Products</a>
+                <a href="about.html">About</a>
+                <a href="available">Available At</a>
+                <a href="" class="active">Contact</a>
+                <a href="get.html" class="get-in-touch" onMouseOver="this.style.color='#1e3a8a'" onMouseOut="this.style.color='#fff'">Get in Touch</a>
                 <div class="nav-search">
                     <i class="fa fa-search" aria-hidden="true"></i>
                     <input type="text" id="navSearchInput" placeholder="Search Products..." aria-label="Search products">
@@ -536,15 +537,14 @@ footer {
     </header>
 
     <script type="text/javascript">var submitted = false;</script>
-<iframe name="hidden_iframe" id="hidden_iframe" style="display: none" 
-        onload="if(submitted){window.location='sf.html';}">
-</iframe>
-
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display: none" 
+            onload="if(submitted){window.location='sf.html';}">
+    </iframe>
 
     <section class="contact" id="contact">
         <div class="contact-form">
             <h2>Contact us</h2>
-            <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdzplBhSnG3nuISL1HfEYYw8YdqZWvGFK6N_S6wv5BePzg66A/formResponse" method="post" target="hidden_iframe" onsubmit="submitted=true; return checkRecaptcha();" class="form" id="form1">
+            <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdzplBhSnG3nuISL1HfEYYw8YdqZWvGFK6N_S6wv5BePzg66A/formResponse" method="post" target="hidden_iframe" onsubmit="return handleFormSubmit();" class="form" id="form1">
                 <label for="name">Name <span style="color: red;">*</span></label>
                 <input type="text" id="name" name="entry.1570530803" required aria-label="Your name">
                 
@@ -553,29 +553,20 @@ footer {
                 
                 <label for="number">Phone Number <span style="color: red;">*</span></label>
                 <input type="number" id="phone" name="entry.1386492628" required aria-label="Your Phone Number">
-                <!--div style="display: flex; align-items: center;">
-  <span style="padding: 12px; color: #1e3a8a; border-top-left-radius: 0.5rem; border-bottom-left-radius: 0.5rem;">
-    +91
-  </span>
-<input type="tel" id="phone" name="entry.1386492628" required aria-label="Your Phone Number" maxlength="10" pattern="\d{10}" inputmode="numeric"">
-            </div-->
-
                 
                 <label for="message">Message <span style="color: red;">*</span></label>
                 <textarea id="message" name="entry.1912990133" required aria-label="Your message"></textarea>
                 <input type="hidden" id="States" name="entry.1429364416" value="1">
                 <div class="g-recaptcha" data-sitekey="6Le4CYYrAAAAACjtNAQwL5zOpwGP3sdRqKVll6KM"></div>
+                <p class="error-message" id="timerError">Please wait 30 minutes before submitting another form.</p>
                 <button type="submit">Send Message</button>
-</form>
+            </form>
         </div>
         <div class="contact-info">
             <h2>Contact Information</h2>
             <p><i class="fa fa-envelope" aria-hidden="true"></i> <a href="mailto:info@vedaxpharma.com">info@vedaxpharma.com</a></p>
             <p><i class="fa fa-phone" aria-hidden="true"></i> +91 63591 57356</p>
             <p><i class="fa fa-map-marker" aria-hidden="true"></i> J-99, Radha Park Society, Vadodara, Gujarat, India</p>
-            <!--div class="contact-map">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.540879379082!2d73.18152431489185!3d22.30715898531869!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395fc8ab91a3ddab%3A0x7a3b7b7b7b7b7b7b!2sRadha%20Park%20Society%2C%20Vadodara%2C%20Gujarat%2C%20India!5e0!3m2!1sen!2sus!4v1697644321098!5m2!1sen!2sus" allowfullscreen="" loading="lazy" aria-label="Map of Vedax Pharma location"></iframe>
-        </div-->
         </div>
     </section>
 
@@ -598,27 +589,15 @@ footer {
                 <a href="https://www.threads.com/@vedaxpharmaofficial"><img src="./imgs/threads.png" alt="Threads"></a>
             </div>
         </div>
-     </footer>
-<div class="footer-legal">
-   <a href="https://techexzakt.pages.dev/">
-         Developed by <img src="../imgs/Tech_Exzakt_logo.png" alt="Tech Exzakt" style="height: 25px; vertical-align: middle; margin-left: 5px;">
-    </a>
-    <div class="footer-copy">© 2025 Vedax Pharma. All rights reserved</div>
-    <a href="./privacy.html" class="terms">Privacy | Disclaimer</a>
-</div>
+    </footer>
+    <div class="footer-legal">
+        <a href="https://techexzakt.pages.dev/">
+            Developed by <img src="../imgs/Tech_Exzakt_logo.png" alt="Tech Exzakt" style="height: 25px; vertical-align: middle; margin-left: 5px;">
+        </a>
+        <div class="footer-copy">© 2025 Vedax Pharma. All rights reserved</div>
+        <a href="./privacy.html" class="terms">Privacy | Disclaimer</a>
+    </div>
 
-<!-- Check reCAPTCHA before submit -->
-    <script>
-  function checkRecaptcha() {
-    var response = grecaptcha.getResponse();
-    if (response.length === 0) {
-      alert("Please complete the reCAPTCHA.");
-      return false;
-    }
-    return true; // allow form to submit
-  }
-</script>
-    
     <script>
         // Hamburger menu toggle
         const hamburger = document.querySelector('.hamburger');
@@ -679,6 +658,33 @@ footer {
             }
         });
 
+        // Form submission timer logic
+        const SUBMISSION_COOLDOWN = 30 * 60 * 1000; // 30 minutes in milliseconds
+        const timerError = document.getElementById('timerError');
+
+        function handleFormSubmit() {
+            // Check reCAPTCHA
+            var recaptchaResponse = grecaptcha.getResponse();
+            if (recaptchaResponse.length === 0) {
+                alert("Please complete the reCAPTCHA.");
+                return false;
+            }
+
+            // Check submission cooldown
+            const lastSubmission = localStorage.getItem('lastFormSubmission');
+            const currentTime = Date.now();
+
+            if (lastSubmission && (currentTime - parseInt(lastSubmission) < SUBMISSION_COOLDOWN)) {
+                timerError.style.display = 'block';
+                return false;
+            }
+
+            // Allow submission and store timestamp
+            submitted = true;
+            localStorage.setItem('lastFormSubmission', currentTime.toString());
+            timerError.style.display = 'none';
+            return true;
+        }
     </script>
 </body>
 </html>
