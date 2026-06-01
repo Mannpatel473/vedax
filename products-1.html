@@ -473,7 +473,7 @@
                 <a href="./get.html" class="get-in-touch" onMouseOver="this.style.color='#1e3a8a'" onMouseOut="this.style.color='#fff'">Get in Touch</a>
                 <div class="nav-search">
                     <i class="fa fa-search" aria-hidden="true"></i>
-                    <input type="text" id="navSearchInput" placeholder="Search Products..." aria-label="Search products">
+                    <input type="text" id="navSearchInput" placeholder="Search Products..."onclick="window.location.href='./products.html?search=';">
                     <button class="clear-search" id="clearSearch" aria-label="Clear search">✖</button>
                 </div>
             </div>
@@ -618,16 +618,6 @@
 </div>
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
    <script>
-
-       // --------------------------------------------------------------------------------
-        const performSearch = (query) => {
-        query = query.trim().toLowerCase().replace(/[^a-z0-9\s]/g, '');
-        if (query) {
-            window.location.href = `../products.html?search=${encodeURIComponent(query)}`;
-        }
-    };
-      // --------------------------------------------------------------------------------
-
        
         document.addEventListener('DOMContentLoaded', () => {
             const searchInput = document.getElementById('navSearchInput');
