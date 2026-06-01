@@ -615,7 +615,14 @@
 </div>
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script>
-
+// --------------------------------------------------------------------------------
+        const performSearch = (query) => {
+        query = query.trim().toLowerCase().replace(/[^a-z0-9\s]/g, '');
+        if (query) {
+            window.location.href = `../products.html?search=${encodeURIComponent(query)}`;
+        }
+    };
+// --------------------------------------------------------------------------------
         // Hamburger menu toggle
         const hamburger = document.querySelector('.hamburger');
         const navLinks = document.querySelector('.nav-links');
