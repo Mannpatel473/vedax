@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Products - Vedax Pharma</title>
+    <link rel="icon" type="image/x-icon" href="../imgs/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../footer.css">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #e6f0ff;
+            overflow-x: hidden;
+        }
+
+        .logo {
+            width: 180px;
+            height: auto;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(90deg, rgba(79, 196, 159, 0.8), rgba(235, 145, 36, 0.8));
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: clamp(1.5rem, 5vw, 2rem);
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            position: relative;
+            transition: color 0.3s ease;
+            font-size: clamp(0.9rem, 3vw, 1rem);
+        }
+
+        .nav-links a.active {
+            color: #facc15;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: #facc15;
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: #facc15;
+        }
+
+        .nav-search {
+            position: relative;
+            margin-left: 20px;
+        }
+
+        .nav-search input {
+            width: clamp(150px, 30vw, 250px);
+            padding: 0.5rem 2rem 0.5rem 2.5rem;
+            border: 2px solid #eb9324;
+            border-radius: 25px;
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+            outline: none;
+            background: white;
+            color: #eb9324;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .nav-search input:focus {
+            border-color: #facc15;
+            box-shadow: 0 0 10px rgba(250, 204, 21, 0.5);
+        }
+
+        .nav-search .fa-search {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #1e3a8a;
+        }
+
+        .nav-search .clear-search {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #eb9324;
+            cursor: pointer;
+            font-size: 1rem;
+            display: none;
+        }
+
+        .get-in-touch {
+            background: #facc15;
+            color: #eb9324;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-left: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .get-in-touch:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(250, 204, 21, 0.5);
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Products Section */
+        .products {
+            margin: 5rem 0 3rem;
+            padding: 0;
+            text-align: center;
+            min-height: calc(100vh - 180px);
+        }
+
+        .products h1 {
+            font-size: clamp(1.8rem, 5vw, 2.8rem);
+            margin: 2rem 0 1.5rem;
+            color: #eb9324;
+        }
+
+        .product-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .product-card {
+            background: white;
+            padding: 1.5rem 0;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            width: 90vw;
+            margin: 0 auto;
+        }
+
+        .product-card.hidden {
+            display: none;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-card-content {
+            max-width: 1500px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .product-card img {
+            width: 500px;
+            height: auto;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .product-text {
+            flex: 1;
+            text-align: left;
+        }
+
+        .product-card h3 {
+            font-size: clamp(1.2rem, 3vw, 1.4rem);
+            margin: 0 0 0.5rem;
+            color: #eb9324;
+            font-weight: normal;
+        }
+
+        .product-card p {
+            color: #4b5563;
+            font-size: clamp(0.85rem, 2.5vw, 0.95rem);
+            line-height: 1.5;
+        }
+
+        .no-results {
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            color: #4b5563;
+            text-align: center;
+            margin: 2rem 0;
+            display: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hamburger { display: block; }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 77.2px;
+                left: 0;
+                width: 100%;
+                background: linear-gradient(90deg, #4fc49fcd, #eb9124d8);
+                padding: 1rem 0;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            }
+
+            .nav-links.active { display: flex; }
+
+            .product-card-content {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+
+            .product-card img {
+                width: 100%;
+                max-width: 290px;
+            }
+
+            .product-text {
+                text-align: center;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .product-card img {
+                width: 290px;
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../index.html"><img src="../imgs/logo.png" alt="Vedax Pharma" class="logo"></a>
+            <button class="hamburger" aria-label="Toggle menu">☰</button>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="" class="active">Products</a>
+                <a href="../about.html">About</a>
+                <a href="../available/">Available At</a>
+                <a href="../contact.html">Contact</a>
+                <a href="../get.html" class="get-in-touch">Get in Touch</a>
+                <div class="nav-search">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                    <input type="text" id="navSearchInput" placeholder="Search Products..." aria-label="Search products">
+                    <button class="clear-search" id="clearSearch" aria-label="Clear search">✖</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="products" id="products">
+        <br>
+        <h1>Our Products</h1>
+
+        <div class="product-grid" id="productGrid">
+
+            <!-- Respiratory Range -->
+            <h1>Respiratory Range</h1>
+            <a href="Kovidex.html">
+            <div class="product-card">
+                <div class="product-card-content">
+                    <img src="./imgs/Kovidex-2.png">
+                    <div class="product-text">
+                        <h3>Kovidex® 60ML & 100ML</h3>
+                        <p>• Dextromethorphan Hydrobromide I.P. – 15 mg <br>
+                           • Phenylephrine Hydrochloride I.P. – 5 mg <br>
+                           • Chlorpheniramine Maleate I.P. – 2 mg <br>
+                           • Flavored syrupy base – q.s.</p>
+                    </div>
+                </div>
+            </div></a>
+
+            <a href="Kovidexac.html">
+            <div class="product-card">
+                <div class="product-card-content">
+                    <img src="./imgs/Kovidex-AC-2.png">
+                    <div class="product-text">
+                        <h3>Kovidex AC® 60ML & 100ML</h3>
+                        <p>• Dextromethorphan Hydrobromide I.P. – 10 mg <br>
+                           • Cetirizine Dihydrochloride I.P. – 5 mg <br>
+                           • Ambroxol Hydrochloride I.P. – 15 mg <br>
+                           • Menthol I.P. – 0.5 mg <br>
+                           • Flavored syrupy base – q.s.</p>
+                    </div>
+                </div>
+            </div></a>
+
+            <a href="KeturiLM.html">
+            <div class="product-card">
+                <div class="product-card-content">
+                    <img src="./imgs/KeturiLM-1.png">
+                    <div class="product-text">
+                        <h3>Keturi® LM</h3>
+                        <p>• Levocetirizine Hydrochloride I.P. – 5 mg <br>
+                           • Montelukast Sodium I.P. eq. to Montelukast – 10 mg <br>
+                           • Excipients – Q.S.</p>
+                    </div>
+                </div>
+            </div></a>
+
+            <!-- Anti Septic Range -->
+            <h1>Anti Septic Range</h1>
+            <a href="Aloved.html">
+            <div class="product-card">
+                <div class="product-card-content">
+                    <img src="./imgs/Aloved-1.png">
+                    <div class="product-text">
+                        <h3>Aloved™ Gel</h3>
+                        <p>• Aloevera Gel</p>
+                    </div>
+                </div>
+            </div></a>
+
+            <a href="AloeNeem.html">
+            <div class="product-card">
+                <div class="product-card-content">
+                    <img src="./imgs/AloeNeem-1.png">
+                    <div class="product-text">
+                        <h3>Aloeneem™ Soap</h3>
+                        <p>• Neem & Aloe Vera Herbal Soap</p>
+                    </div>
+                </div>
+            </div></a>
+
+            <!-- Gastro Intestinal Range -->
+            <h1>Gastro Intestinal Range</h1>
+            <a href="Omitrend.html">
+            <div class="product-card">
+                <div class="product-card-content">
+                    <img src="./imgs/Omitrend-1.png">
+                    <div class="product-text">
+                        <h3>Omitrend®</h3>
+                        <p>• Omeprazole I.P. – 20 mg (as enteric-coated pellets) <br>
+                           • Excipients – Q.S.</p>
+                    </div>
+                </div>
+            </div></a>
+
+            <a href="OmitrendD.html">
+            <div class="product-card">
+                <div class="product-card-content">
+                    <img src="./imgs/OmitrendD-1.png">
+                    <div class="product-text">
+                        <h3>Omitrend D®</h3>
+                        <p>• Omeprazole I.P. – 20 mg (as enteric-coated pellets) <br>
+                           • Domperidone I.P. – 10 mg (as sustained-release pellets) <br>
+                           • Excipients – Q.S.</p>
+                    </div>
+                </div>
+            </div></a>
+
+            <!-- Anti Fungal Range -->
+            <h1>Anti Fungal Range</h1>
+            <a href="Cloved.html">
+            <div class="product-card">
+                <div class="product-card-content">
+                    <img src="./imgs/Cloved-Powder.png">
+                    <div class="product-text">
+                        <h3>Cloved Dusting Powder</h3>
+                        <p>• Clotrimazole I.P. – 1% w/w <br>
+                           • Talcum base – Q.S.</p>
+                    </div>
+                </div>
+            </div></a>
+
+            <a href="OrnitraCapsule.html">
+            <div class="product-card">
+                <div class="product-card-content">
+                    <img src="./imgs/OrnitraCapsule-1.png">
+                    <div class="product-text">
+                        <h3>Ornitra™ 100</h3>
+                        <p>• Itraconazole Pellets Eq. Itraconazole BP – 100 mg <br>
+                           • Excipients – Q.S.</p>
+                    </div>
+                </div>
+            </div></a>
+
+            <a href="OrnitraCapsule1.html">
+            <div class="product-card">
+                <div class="product-card-content">
+                    <img src="./imgs/OrnitraCapsule1-1.png">
+                    <div class="product-text">
+                        <h3>Ornitra® 200</h3>
+                        <p>• Itraconazole BP - 200 mg (As Enteric Coated Pellets) <br>
+                           • Excipients – Q.S.</p>
+                    </div>
+                </div>
+            </div></a>
+
+            <a href="OrnitraOC.html">
+            <div class="product-card">
+                <div class="product-card-content">
+                    <img src="./imgs/OrnitraOC-1.png">
+                    <div class="product-text">
+                        <h3>Ornitra® OC</h3>
+                        <p>• Itraconazole I.P. – 1.0% w/w <br>
+                           • Ofloxacin I.P. – 0.75% w/w <br>
+                           • Ornidazole I.P. – 2.0% w/w <br>
+                           • Clobetasol Propionate I.P. – 0.05% w/w <br>
+                           • Methylparaben & Propylparaben (Preservatives) <br>
+                           • In a Cream base – q.s.</p>
+                    </div>
+                </div>
+            </div></a>
+
+            <a href="CloendBN.html">
+            <div class="product-card">
+                <div class="product-card-content">
+                    <img src="./imgs/CloendBN-1.png">
+                    <div class="product-text">
+                        <h3>Cloend™ BN</h3>
+                        <p>• Beclomethasone Dipropionate I.P. – 0.025% w/w <br>
+                           • Neomycin Sulphate Eq. to Neomycin I.P – 0.5% w/w <br>
+                           • Clotrimazole I.P. – 1.0% w/w <br>
+                           • Cream base – q.s.</p>
+                    </div>
+                </div>
+            </div></a>
+
+            <!-- Anti Allergic Range -->
+            <h1>Anti Allergic Range</h1>
+            <a href="Keturi.html">
+            <div class="product-card">
+                <div class="product-card-content">
+                    <img src="./imgs/Keturi-1.png">
+                    <div class="product-text">
+                        <h3>Keturi®</h3>
+                        <p>• Cetirizine Hydrochloride I.P. – 10 mg <br>
+                           • Excipients – Q.S.</p>
+                    </div>
+                </div>
+            </div></a>
+
+            <a href="KeturiL5.html">
+            <div class="product-card">
+                <div class="product-card-content">
+                    <img src="./imgs/KeturiL5-1.png">
+                    <div class="product-text">
+                        <h3>Keturi® L5</h3>
+                        <p>• Levocetirizine Hydrochloride I.P. – 5 mg <br>
+                           • Excipients – Q.S.</p>
+                    </div>
+                </div>
+            </div></a>
+
+            <a href="KeturiLM.html">
+            <div class="product-card">
+                <div class="product-card-content">
+                    <img src="./imgs/KeturiLM-1.png">
+                    <div class="product-text">
+                        <h3>Keturi® LM</h3>
+                        <p>• Levocetirizine Hydrochloride I.P. – 5 mg <br>
+                           • Montelukast Sodium I.P. eq. to Montelukast – 10 mg <br>
+                           • Excipients – Q.S.</p>
+                    </div>
+                </div>
+            </div></a>
+
+            <!-- Topical Steroid Range -->
+            <h1>Topical Steroid Range</h1>
+            <a href="MometrinHT.html">
+            <div class="product-card">
+                <div class="product-card-content">
+                    <img src="./imgs/MometrinHT-1.png">
+                    <div class="product-text">
+                        <h3>Mometrin HT®</h3>
+                        <p>• Hydroquinone U.S.P. – 2.0% w/w <br>
+                           • Tretinoin U.S.P. – 0.025% w/w <br>
+                           • Mometasone Furoate I.P. – 0.1% w/w <br>
+                           • Cream base – q.s.</p>
+                    </div>
+                </div>
+            </div></a>
+
+            <!-- Anti Biotic Range -->
+            <h1>Anti Biotic Range</h1>
+            <a href="Doxsee-L.html">
+            <div class="product-card">
+                <div class="product-card-content">
+                    <img src="./imgs/Doxsee-L.png">
+                    <div class="product-text">
+                        <h3>Doxsee™ L Cap</h3>
+                        <p>• Doxycycline Hydrochloride I.P. Eq. to Doxycycline – 100 mg <br>
+                           • Lactic Acid Bacillus – 5 million spores <br>
+                           • Excipients – Q.S.</p>
+                    </div>
+                </div>
+            </div></a>
+
+            <!-- Analgesic & Anti Inflammatory -->
+            <h1>Analgesic & Anti Inflammatory Range</h1>
+            <a href="Dicloved-Plus.html">
+            <div class="product-card">
+                <div class="product-card-content">
+                    <img src="./imgs/Dicloved-Plus-1.png">
+                    <div class="product-text">
+                        <h3>Dicloved® Plus</h3>
+                        <p>• Diclofenac Potassium B.P. – 50 mg <br>
+                           • Paracetamol I.P. – 325 mg <br>
+                           • Excipients – Q.S.</p>
+                    </div>
+                </div>
+            </div></a>
+
+            <a href="Shimnac.html">
+            <div class="product-card">
+                <div class="product-card-content">
+                    <img src="./imgs/Shimnac-1.png">
+                    <div class="product-text">
+                        <h3>Shimnac™</h3>
+                        <p>• Diclofenac Sodium I.P. – 50 mg <br>
+                           • Paracetamol I.P. – 325 mg <br>
+                           • Excipients – Q.S.</p>
+                    </div>
+                </div>
+            </div></a>
+
+            <a href="DiclovedG.html">
+            <div class="product-card">
+                <div class="product-card-content">
+                    <img src="./imgs/DiclovedG-1.png">
+                    <div class="product-text">
+                        <h3>Dicloved® G</h3>
+                        <p>• Diclofenac Sodium I.P. – 50 mg <br>
+                           • Paracetamol I.P. – 325 mg <br>
+                           • Excipients – Q.S.</p>
+                    </div>
+                </div>
+            </div></a>
+
+            <a href="DiclovedGel.html">
+            <div class="product-card">
+                <div class="product-card-content">
+                    <img src="./imgs/DiclovedGel-1.png">
+                    <div class="product-text">
+                        <h3>Dicloved® Gel</h3>
+                        <p>• Diclofenac Diethylamine B.P. eq. to Diclofenac Sodium - 1.16% w/w <br>
+                           • Linseed Oil B.P. – 3% w/w <br>
+                           • Methyl Salicylate I.P. – 10% w/w <br>
+                           • Menthol I.P. – 5% w/w <br>
+                           • Gel base – q.s.</p>
+                    </div>
+                </div>
+            </div></a>
+
+            <!-- Analgesic & Anti Pyretic -->
+            <h1>Analgesic & Anti Pyretic Range</h1>
+            <a href="Cafimost.html">
+            <div class="product-card">
+                <div class="product-card-content">
+                    <img src="./imgs/Cafimost-1.png">
+                    <div class="product-text">
+                        <h3>Cafimost®</h3>
+                        <p>• Paracetamol I.P. – 650 mg <br>
+                           • Caffeine (Anhydrous) I.P. – 50 mg <br>
+                           • Excipients – Q.S.</p>
+                    </div>
+                </div>
+            </div></a>
+
+            <!-- Pregnancy Test Kit -->
+            <h1>Pregnancy Test Kit</h1>
+            <a href="Pregasee.html">
+            <div class="product-card">
+                <div class="product-card-content">
+                    <img src="./imgs/Pregasee.png">
+                    <div class="product-text">
+                        <h3>Pregasee®</h3>
+                        <p>• One-Step Urine HCG Pregnancy Test Kit</p>
+                    </div>
+                </div>
+            </div></a>
+
+        </div>
+
+        <div class="no-results" id="noResults">No results found.</div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-section">
+            <h3>ABOUT US</h3>
+            <img src="../imgs/logo.png" style="width: 150px;">
+            <p>Our company, Vedax Pharma, has had a long but fruitful journey during which we have successfully consolidated our market position.</p>
+            <a href="../about.html" class="read-more">Read More</a>
+        </div>
+        <div class="footer-section">
+            <h3>CONTACT US</h3>
+            <p>J-99, Radha Park Society, Opp. Sardar Estate, New VIP Road, Vadodara - 390019, Gujarat, India.</p>
+            <p><a href="tel:+916359157356">+91 63591 57356</a></p>
+            <p><a href="mailto:info@vedaxpharma.com">info@vedaxpharma.com</a></p>
+            <div class="social-links">
+                <a href="https://www.facebook.com/share/191Quj18k5/?mibextid=wwXIfr"><img src="../imgs/facebook.png" alt="Facebook"></a>
+                <a href="https://wa.me/916359157356"><img src="../imgs/whatsapp.png" alt="WhatsApp"></a>
+                <a href="https://www.instagram.com/vedaxpharmaofficial/"><img src="../imgs/instagram.png" alt="Instagram"></a>
+                <a href="https://www.threads.com/@vedaxpharmaofficial"><img src="../imgs/threads.png" alt="Threads"></a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="footer-legal">
+        <a href="https://techexzakt.pages.dev/">
+            Developed by <img src="../imgs/Tech_Exzakt_logo.png" alt="Tech Exzakt" style="height: 25px; vertical-align: middle; margin-left: 5px;">
+        </a>
+        <div class="footer-copy">© 2026 Vedax Pharma. All rights reserved</div>
+        <a href="../privacy.html" class="terms">Privacy | Disclaimer</a>
+    </div>
+
+    <script>
+        // Hamburger Menu
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Search Functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('navSearchInput');
+            const clearSearch = document.getElementById('clearSearch');
+            const productCards = document.querySelectorAll('.product-card');
+            const noResults = document.getElementById('noResults');
+
+            searchInput.addEventListener('input', () => {
+                const searchTerm = searchInput.value.trim().toLowerCase();
+                clearSearch.style.display = searchTerm ? 'block' : 'none';
+
+                let visibleCards = 0;
+
+                productCards.forEach(card => {
+                    const title = card.querySelector('h3').textContent.toLowerCase();
+                    const description = card.querySelector('p').textContent.toLowerCase();
+
+                    if (searchTerm === '' || title.includes(searchTerm) || description.includes(searchTerm)) {
+                        card.classList.remove('hidden');
+                        visibleCards++;
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+
+                noResults.style.display = visibleCards === 0 ? 'block' : 'none';
+            });
+
+            // Clear search
+            clearSearch.addEventListener('click', () => {
+                searchInput.value = '';
+                clearSearch.style.display = 'none';
+                productCards.forEach(card => card.classList.remove('hidden'));
+                noResults.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>
