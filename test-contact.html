@@ -1,0 +1,1530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src https://fonts.gstatic.com; img-src 'self' data:; frame-src https://docs.google.com; connect-src 'self' https://docs.google.com;">
+    <title>Contact Us - Vedax Pharma</title>
+    <link rel="icon" type="image/x-icon" href="./imgs/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="footer.css">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #f4f7fc;
+            overflow-x: hidden;
+        }
+
+        .logo {
+            width: 180px;
+            height: auto;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(90deg, rgba(79, 196, 159, 0.8), rgba(235, 145, 36, 0.8));
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            position: relative;
+            transition: color 0.3s ease;
+            font-size: clamp(0.9rem, 3vw, 1rem);
+        }
+
+        .nav-links a.active {
+            color: #facc15;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: #facc15;
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: #facc15;
+        }
+
+        .nav-search {
+            position: relative;
+            margin-left: 20px;
+            animation: searchpop 1s ease-out;
+        }
+
+        .nav-search input {
+            width: clamp(150px, 30vw, 250px);
+            padding: 0.5rem 2rem 0.5rem 2.5rem;
+            border: 2px solid #eb9324;
+            border-radius: 25px;
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+            outline: none;
+            background: white;
+            color: #eb9324;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .nav-search input:focus {
+            border-color: #facc15;
+            box-shadow: 0 0 10px rgba(250, 204, 21, 0.5);
+        }
+
+        .nav-search .fa-search {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #1e3a8a;
+        }
+
+        .nav-search .clear-search {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #eb9324;
+            cursor: pointer;
+            font-size: 1rem;
+            display: none;
+        }
+
+        .get-in-touch {
+            background: #facc15;
+            color: #eb9324;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-left: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .get-in-touch:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(250, 204, 21, 0.5);
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Contact Section */
+        .contact {
+            max-width: 1200px;
+            margin: 5rem auto 3rem;
+            padding: 0 20px;
+            min-height: calc(100vh - 180px);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: flex-start;
+            justify-content: center;
+        }
+
+        .contact-form {
+            flex: 1;
+            min-width: 280px;
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            animation: slideup 1s ease-out;
+            position: relative;
+        }
+
+        .contact-form h2 {
+            font-size: clamp(1.8rem, 5vw, 2.8rem);
+            color: #1e3a8a;
+            margin-bottom: 0.3rem;
+            animation: fadein 1s ease-in;
+        }
+
+        /* Security badge */
+        .security-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+            border: 1px solid #6ee7b7;
+            border-radius: 50px;
+            padding: 4px 14px;
+            font-size: 0.72rem;
+            color: #065f46;
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+            letter-spacing: 0.3px;
+        }
+
+        .security-badge i {
+            color: #10b981;
+            font-size: 0.8rem;
+        }
+
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-form label {
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+            color: #1e3a8a;
+            font-weight: 600;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #2dd4bf;
+            border-radius: 10px;
+            font-size: clamp(0.85rem, 2.5vw, 0.95rem);
+            color: #1e3a8a;
+            outline: none;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            background: #fff;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #facc15;
+            box-shadow: 0 0 10px rgba(250, 204, 21, 0.5);
+        }
+
+        .contact-form input.input-error,
+        .contact-form textarea.input-error {
+            border-color: #ef4444;
+            box-shadow: 0 0 8px rgba(239, 68, 68, 0.3);
+        }
+
+        .contact-form input.input-success,
+        .contact-form textarea.input-success {
+            border-color: #10b981;
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .field-error {
+            color: #ef4444;
+            font-size: 0.78rem;
+            margin-top: -6px;
+            display: none;
+            font-weight: 500;
+        }
+
+        .field-error.visible {
+            display: block;
+            animation: fadein 0.3s ease;
+        }
+
+        /* CAPTCHA row */
+        .captcha-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .captcha-question {
+            background: linear-gradient(135deg, #1e3a8a, #1e40af);
+            color: #facc15;
+            padding: 0.6rem 1rem;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+            white-space: nowrap;
+            letter-spacing: 1px;
+            user-select: none;
+            min-width: 100px;
+            text-align: center;
+        }
+
+        .captcha-row input {
+            flex: 1;
+            min-width: 100px;
+        }
+
+        .captcha-refresh {
+            background: none;
+            border: 2px solid #2dd4bf;
+            border-radius: 10px;
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: #1e3a8a;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .captcha-refresh:hover {
+            border-color: #facc15;
+            color: #facc15;
+            transform: rotate(180deg);
+        }
+
+        /* Honeypot — invisible to humans */
+        .hp-field {
+            position: absolute;
+            left: -9999px;
+            top: -9999px;
+            opacity: 0;
+            height: 0;
+            width: 0;
+            overflow: hidden;
+            pointer-events: none;
+            tabindex: -1;
+            aria-hidden: true;
+        }
+
+        .contact-form button {
+            background: #facc15;
+            color: #1e3a8a;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(250, 204, 21, 0.5);
+            animation: scaleglow 2s ease-in-out infinite;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .contact-form button:hover:not(:disabled) {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(250, 204, 21, 0.8);
+        }
+
+        .contact-form button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            animation: none;
+        }
+
+        .contact-form button .spinner {
+            display: none;
+            width: 18px;
+            height: 18px;
+            border: 3px solid rgba(30, 58, 138, 0.2);
+            border-top-color: #1e3a8a;
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+        }
+
+        .contact-form button.loading .spinner {
+            display: block;
+        }
+
+        .contact-form button.loading .btn-text {
+            display: none;
+        }
+
+        /* Security notice */
+        .security-notice {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 0.5rem;
+            font-size: 0.72rem;
+            color: #9ca3af;
+        }
+
+        .security-notice i {
+            font-size: 0.7rem;
+        }
+
+        /* Rate limit block */
+        .rate-limit-blocked {
+            display: none;
+            background: linear-gradient(135deg, #fef2f2, #fee2e2);
+            border: 2px solid #fca5a5;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            animation: fadein 0.4s ease;
+        }
+
+        .rate-limit-blocked i {
+            font-size: 2.5rem;
+            color: #ef4444;
+            margin-bottom: 0.5rem;
+        }
+
+        .rate-limit-blocked h3 {
+            color: #991b1b;
+            margin-bottom: 0.5rem;
+        }
+
+        .rate-limit-blocked p {
+            color: #b91c1c;
+            font-size: 0.9rem;
+        }
+
+        .rate-limit-blocked .countdown {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #dc2626;
+            margin-top: 0.5rem;
+        }
+
+        /* Toast notification */
+        .toast-container {
+            position: fixed;
+            top: 90px;
+            right: 20px;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .toast {
+            padding: 14px 20px;
+            border-radius: 12px;
+            color: white;
+            font-size: 0.88rem;
+            font-weight: 500;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            animation: toastIn 0.4s ease;
+            max-width: 360px;
+            backdrop-filter: blur(10px);
+        }
+
+        .toast.error {
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+        }
+
+        .toast.success {
+            background: linear-gradient(135deg, #059669, #047857);
+        }
+
+        .toast.warning {
+            background: linear-gradient(135deg, #d97706, #b45309);
+        }
+
+        .toast.removing {
+            animation: toastOut 0.3s ease forwards;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 280px;
+            animation: slideup 1s ease-out 0.2s;
+        }
+
+        .contact-info h2 {
+            font-size: clamp(1.8rem, 5vw, 2.8rem);
+            color: #1e3a8a;
+            margin-bottom: 1.5rem;
+            animation: fadein 1s ease-in;
+        }
+
+        .contact-info p {
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+            color: #4b5563;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info a {
+            color: #2dd4bf;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: #facc15;
+        }
+
+        .contact-info .social-links {
+            margin-top: 1rem;
+        }
+
+        .contact-info .social-links a {
+            margin: 0 10px;
+            font-size: clamp(1rem, 3vw, 1.2rem);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(90deg, #4fc49fcd, #eb9124d8);
+            color: white;
+            padding: 1.5rem 20px;
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            text-align: center;
+        }
+
+        .footer-section {
+            margin: 0.5rem 0;
+            max-width: 40%;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-section p {
+            margin: 0 0 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .read-more {
+            background: #2dd4bf;
+            color: #1e3a8a;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .read-more:hover {
+            background-color: #facc15;
+            transform: scale(1.05);
+            color: #eb9324;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 0.5rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: scale(1.2);
+        }
+
+        .social-links img {
+            width: 30px;
+            height: 30px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-links img:hover {
+            transform: scale(1.2);
+        }
+
+        .footer-legal {
+            background: #1e3a8a;
+            color: white;
+            text-align: center;
+            padding: 0.8rem 20px;
+            font-size: 0.85rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-legal a {
+            color: #2dd4bf;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-legal a:hover {
+            color: #facc15;
+        }
+
+        .footer-legal .terms {
+            color: #94a3b8;
+        }
+
+        .footer-legal .terms:hover {
+            color: #facc15;
+        }
+
+        /* Animations */
+        @keyframes capsulespin {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.2); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+
+        @keyframes fadein {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideup {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes scaleglow {
+            0%, 100% { box-shadow: 0 0 15px rgba(250, 204, 21, 0.5); }
+            50% { box-shadow: 0 0 25px rgba(250, 204, 21, 0.8); }
+        }
+
+        @keyframes searchpop {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes toastIn {
+            from { opacity: 0; transform: translateX(60px) scale(0.9); }
+            to { opacity: 1; transform: translateX(0) scale(1); }
+        }
+
+        @keyframes toastOut {
+            from { opacity: 1; transform: translateX(0) scale(1); }
+            to { opacity: 0; transform: translateX(60px) scale(0.9); }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20% { transform: translateX(-6px); }
+            40% { transform: translateX(6px); }
+            60% { transform: translateX(-4px); }
+            80% { transform: translateX(4px); }
+        }
+
+        .shake {
+            animation: shake 0.4s ease;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 77.2px;
+                left: 0;
+                width: 100%;
+                background: linear-gradient(90deg, #4fc49fcd, #eb9124d8);
+                padding: 1rem 0;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                margin: 10px 0;
+                font-size: 1.2rem;
+            }
+
+            .nav-search {
+                margin: 10px 0;
+                width: 90%;
+            }
+
+            .nav-search input {
+                width: 100%;
+            }
+
+            .contact {
+                margin: 4rem auto 2rem;
+                padding: 0 15px;
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .contact-form, .contact-info {
+                min-width: 100%;
+            }
+
+            .contact-form {
+                padding: 1.5rem;
+            }
+
+            .toast-container {
+                top: auto;
+                bottom: 20px;
+                right: 10px;
+                left: 10px;
+            }
+
+            .toast {
+                max-width: 100%;
+            }
+
+            footer {
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            .footer-section {
+                max-width: 100%;
+                text-align: center;
+            }
+
+            .social-links a {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .nav-links a {
+                margin-left: 15px;
+            }
+
+            .nav-search {
+                margin-left: 15px;
+            }
+
+            .nav-search input {
+                width: clamp(120px, 25vw, 200px);
+            }
+
+            .contact {
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html"><img src="./imgs/logo.png" alt="Vedax Pharma" class="logo"></a>
+            <button class="hamburger" aria-label="Toggle menu">&#9776;</button>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="products-1">Products</a>
+                <a href="about.html">About</a>
+                <a href="available">Available At</a>
+                <a href="" class="active">Contact</a>
+                <a href="get.html" class="get-in-touch" onMouseOver="this.style.color='#1e3a8a'" onMouseOut="this.style.color='#fff'">Get in Touch</a>
+                <div class="nav-search">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                    <input type="text" id="navSearchInput" placeholder="Search Products..." aria-label="Search products">
+                    <button class="clear-search" id="clearSearch" aria-label="Clear search">&#10005;</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Toast container for security alerts -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script type="text/javascript">var submitted=false;</script>
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none" onload="if(submitted){window.location='sf.html';}"></iframe>
+
+    <section class="contact" id="contact">
+        <div class="contact-form">
+            <h2>Contact us</h2>
+            <div class="security-badge">
+                <i class="fa-solid fa-shield-halved"></i>
+                Secured &middot; Anti-Spam Protected
+            </div>
+
+            <!-- Rate limit blocked message (hidden by default) -->
+            <div class="rate-limit-blocked" id="rateLimitBlocked">
+                <i class="fa-solid fa-ban"></i>
+                <h3>Submission Limit Reached</h3>
+                <p>Too many attempts detected. Please wait before trying again.</p>
+                <div class="countdown" id="rateCountdown">--:--</div>
+            </div>
+
+            <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdzplBhSnG3nuISL1HfEYYw8YdqZWvGFK6N_S6wv5BePzg66A/formResponse" method="post" target="hidden_iframe" onsubmit="return handleFormSubmit(event)" class="form" id="form1" autocomplete="off">
+
+                <!-- Honeypot field — invisible to real users, bots will fill it -->
+                <div class="hp-field" aria-hidden="true">
+                    <label for="hp_website">Website</label>
+                    <input type="text" id="hp_website" name="hp_website" tabindex="-1" autocomplete="off">
+                </div>
+
+                <!-- Session security token -->
+                <input type="hidden" id="secToken" name="sec_token" value="">
+
+                <label for="name">Name <span style="color: red;">*</span></label>
+                <input type="text" id="name" name="entry.1570530803" required maxlength="100" aria-label="Your name" autocomplete="name">
+                <div class="field-error" id="nameError"></div>
+
+                <label for="email">Email <span style="color: red;">*</span></label>
+                <input type="email" id="email" name="entry.1822557204" required maxlength="150" aria-label="Your email" autocomplete="email">
+                <div class="field-error" id="emailError"></div>
+
+                <label for="phone">Phone Number <span style="color: red;">*</span></label>
+                <input type="tel" id="phone" name="entry.1386492628" required maxlength="15" pattern="[0-9+\-\s()]{7,15}" inputmode="numeric" aria-label="Your Phone Number" autocomplete="tel">
+                <div class="field-error" id="phoneError"></div>
+
+                <label for="message">Message <span style="color: red;">*</span></label>
+                <textarea id="message" name="entry.1912990133" required maxlength="2000" aria-label="Your message"></textarea>
+                <div class="field-error" id="messageError"></div>
+
+                <input type="hidden" id="States" name="entry.1429364416" value="1">
+
+                <!-- Math CAPTCHA -->
+                <label for="captchaInput">Verify you are human <span style="color: red;">*</span></label>
+                <div class="captcha-row">
+                    <div class="captcha-question" id="captchaQuestion" aria-live="polite"></div>
+                    <input type="text" id="captchaInput" required maxlength="5" inputmode="numeric" aria-label="Solve the math problem" autocomplete="off">
+                    <button type="button" class="captcha-refresh" id="captchaRefresh" aria-label="Get new verification question">
+                        <i class="fa-solid fa-rotate-right"></i>
+                    </button>
+                </div>
+                <div class="field-error" id="captchaError"></div>
+
+                <button type="submit" id="submitBtn">
+                    <span class="btn-text">Send Message</span>
+                    <div class="spinner"></div>
+                </button>
+
+                <div class="security-notice">
+                    <i class="fa-solid fa-lock"></i>
+                    Your data is encrypted in transit. We never share your information.
+                </div>
+            </form>
+        </div>
+
+        <div class="contact-info">
+            <h2>Contact Information</h2>
+            <p><i class="fa fa-envelope" aria-hidden="true"></i> <a href="mailto:info@vedaxpharma.com">info@vedaxpharma.com</a></p>
+            <p><i class="fa fa-phone" aria-hidden="true"></i> +91 63591 57356</p>
+            <p><i class="fa fa-map-marker" aria-hidden="true"></i> J-99, Radha Park Society, Vadodara, Gujarat, India</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-section">
+            <h3>ABOUT US</h3>
+            <img src="imgs/logo.png" style="width: 150px;" alt="Vedax Pharma Logo">
+            <p>Our company, Vedax Pharma, has had a long but fruitful journey during which we have successfully consolidated our market position.</p>
+            <a href="about.html" class="read-more">Read More</a>
+        </div>
+        <div class="footer-section">
+            <h3>CONTACT US</h3>
+            <p>J-99, Radha Park Society, Opp. Sardar Estate, New VIP Road, Vadodara - 390019, Gujarat, India.</p>
+            <p><a href="tel:+916359157356">+91 63591 57356</a></p>
+            <p><a href="mailto:info@vedaxpharma.com">info@vedaxpharma.com</a></p>
+            <div class="social-links">
+                <a href="https://www.facebook.com/share/191Quj18k5/?mibextid=wwXIfr"><img src="./imgs/facebook.png" alt="Facebook"></a>
+                <a href="https://wa.me/916359157356"><img src="./imgs/whatsapp.png" alt="WhatsApp"></a>
+                <a href="https://www.instagram.com/vedaxpharmaofficial/"><img src="./imgs/instagram.png" alt="Instagram"></a>
+                <a href="https://www.threads.com/@vedaxpharmaofficial"><img src="./imgs/threads.png" alt="Threads"></a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="footer-legal">
+        <a href="https://techexzakt.pages.dev/">
+            Developed by <img src="../imgs/Tech_Exzakt_logo.png" alt="Tech Exzakt" style="height: 25px; vertical-align: middle; margin-left: 5px;">
+        </a>
+        <div class="footer-copy">&copy; 2026 Vedax Pharma. All rights reserved</div>
+        <a href="./privacy.html" class="terms">Privacy | Disclaimer</a>
+    </div>
+
+    <script>
+    /* ============================================================
+       FORM SECURITY MODULE
+       Layers: Honeypot | CAPTCHA | Rate Limit | Token | Sanitize
+               Timestamp | Anti-Automation | Validation
+    ============================================================ */
+    const FormShield = (() => {
+
+        // --- Configuration ---
+        const CONFIG = {
+            maxAttemptsPerHour: 3,
+            maxAttemptsPerDay: 10,
+            minFormTimeMs: 3000,       // Must stay on page at least 3s
+            maxFormTimeMs: 1800000,    // Form token expires after 30 min
+            tokenLength: 32,
+            captchaNumMin: 1,
+            captchaNumMax: 20
+        };
+
+        // --- State ---
+        let sessionToken = '';
+        let formLoadTime = 0;
+        let captchaAnswer = 0;
+        let isSubmitting = false;
+
+        // --- Initialization ---
+        function init() {
+            formLoadTime = Date.now();
+            sessionToken = generateToken();
+            document.getElementById('secToken').value = sessionToken;
+
+            generateCaptcha();
+            checkRateLimitOnLoad();
+            runAntiAutomationCheck();
+            bindEvents();
+            attachLiveValidation();
+        }
+
+        // --- Cryptographic token generation ---
+        function generateToken() {
+            const array = new Uint8Array(CONFIG.tokenLength);
+            crypto.getRandomValues(array);
+            return Array.from(array, b => b.toString(16).padStart(2, '0')).join('');
+        }
+
+        // --- Honeypot check ---
+        function isHoneypotTriggered() {
+            const hp = document.getElementById('hp_website');
+            // If the invisible field has any value, it's a bot
+            return hp && hp.value !== '';
+        }
+
+        // --- CAPTCHA ---
+        function generateCaptcha() {
+            const a = randomInt(CONFIG.captchaNumMin, CONFIG.captchaNumMax);
+            const b = randomInt(CONFIG.captchaNumMin, CONFIG.captchaNumMax);
+            const ops = ['+', '-', '×'];
+            const opIndex = randomInt(0, 2);
+
+            let answer;
+            let display;
+
+            switch (opIndex) {
+                case 0: // Addition
+                    answer = a + b;
+                    display = `${a} + ${b} = ?`;
+                    break;
+                case 1: // Subtraction (ensure non-negative)
+                    if (a < b) [a, b] = [b, a];
+                    answer = a - b;
+                    display = `${a} − ${b} = ?`;
+                    break;
+                case 2: // Multiplication (keep numbers small)
+                    const ma = randomInt(2, 10);
+                    const mb = randomInt(2, 10);
+                    answer = ma * mb;
+                    display = `${ma} × ${mb} = ?`;
+                    break;
+            }
+
+            captchaAnswer = answer;
+            document.getElementById('captchaQuestion').textContent = display;
+            document.getElementById('captchaInput').value = '';
+            clearFieldError('captcha');
+        }
+
+        function validateCaptcha(userInput) {
+            const cleaned = userInput.replace(/\s/g, '');
+            return parseInt(cleaned, 10) === captchaAnswer;
+        }
+
+        // --- Rate Limiting (localStorage-based) ---
+        function getAttemptLog() {
+            try {
+                return JSON.parse(localStorage.getItem('vx_form_attempts') || '[]');
+            } catch {
+                return [];
+            }
+        }
+
+        function recordAttempt() {
+            const log = getAttemptLog();
+            log.push(Date.now());
+            // Keep only last 24 hours of data
+            const cutoff = Date.now() - 86400000;
+            const filtered = log.filter(t => t > cutoff);
+            try {
+                localStorage.setItem('vx_form_attempts', JSON.stringify(filtered));
+            } catch (e) {
+                // localStorage full or unavailable — fail open gracefully
+            }
+        }
+
+        function checkRateLimitOnLoad() {
+            const log = getAttemptLog();
+            const now = Date.now();
+            const oneHourAgo = now - 3600000;
+            const oneDayAgo = now - 86400000;
+
+            const hourlyCount = log.filter(t => t > oneHourAgo).length;
+            const dailyCount = log.filter(t => t > oneDayAgo).length;
+
+            if (hourlyCount >= CONFIG.maxAttemptsPerHour) {
+                showRateLimitBlock(getNextAvailableTime(log, 3600000));
+                return false;
+            }
+            if (dailyCount >= CONFIG.maxAttemptsPerDay) {
+                showRateLimitBlock(getNextAvailableTime(log, 86400000));
+                return false;
+            }
+            return true;
+        }
+
+        function isRateLimited() {
+            const log = getAttemptLog();
+            const now = Date.now();
+            const oneHourAgo = now - 3600000;
+            const oneDayAgo = now - 86400000;
+            return log.filter(t => t > oneHourAgo).length >= CONFIG.maxAttemptsPerHour
+                || log.filter(t => t > oneDayAgo).length >= CONFIG.maxAttemptsPerDay;
+        }
+
+        function getNextAvailableTime(log, windowMs) {
+            const now = Date.now();
+            const windowStart = now - windowMs;
+            const attemptsInWindow = log.filter(t => t > windowStart).sort((a, b) => a - b);
+
+            if (attemptsInWindow.length < CONFIG.maxAttemptsPerHour) return 0;
+            // The oldest attempt in the window will expire first
+            const oldestInWindow = attemptsInWindow[0];
+            return oldestInWindow + windowMs;
+        }
+
+        function showRateLimitBlock(availableAt) {
+            const formEl = document.getElementById('form1');
+            const blockEl = document.getElementById('rateLimitBlocked');
+            formEl.style.display = 'none';
+            blockEl.style.display = 'block';
+
+            // Start countdown
+            const countdownEl = document.getElementById('rateCountdown');
+            const interval = setInterval(() => {
+                const remaining = Math.max(0, availableAt - Date.now());
+                if (remaining <= 0) {
+                    clearInterval(interval);
+                    formEl.style.display = '';
+                    blockEl.style.display = 'none';
+                    return;
+                }
+                const mins = Math.floor(remaining / 60000);
+                const secs = Math.floor((remaining % 60000) / 1000);
+                countdownEl.textContent = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+            }, 1000);
+        }
+
+        // --- Timestamp validation ---
+        function validateTimestamp() {
+            const elapsed = Date.now() - formLoadTime;
+            if (elapsed < CONFIG.minFormTimeMs) {
+                return { valid: false, message: 'Form submitted too quickly. Please slow down.' };
+            }
+            if (elapsed > CONFIG.maxFormTimeMs) {
+                return { valid: false, message: 'This form has expired. Please refresh the page and try again.' };
+            }
+            return { valid: true };
+        }
+
+        // --- Token validation ---
+        function validateToken() {
+            const currentToken = document.getElementById('secToken').value;
+            if (!currentToken || currentToken !== sessionToken) {
+                return { valid: false, message: 'Invalid form session. Please refresh the page.' };
+            }
+            return { valid: true };
+        }
+
+        // --- Input sanitization ---
+        function sanitize(value) {
+            if (typeof value !== 'string') return '';
+            // Strip HTML tags
+            let clean = value.replace(/<[^>]*>/gi, '');
+            // Remove JavaScript protocol
+            clean = clean.replace(/javascript\s*:/gi, '');
+            // Remove VBScript
+            clean = clean.replace(/vbscript\s*:/gi, '');
+            // Remove event handler attributes
+            clean = clean.replace(/on\w+\s*=\s*["']?[^"']*["']?/gi, '');
+            // Remove SQL injection keywords (case-insensitive word boundary match)
+            clean = clean.replace(/\b(SELECT|INSERT|UPDATE|DELETE|DROP|UNION|ALTER|CREATE|EXEC|EXECUTE|TRUNCATE)\b/gi, '');
+            // Remove common XSS patterns
+            clean = clean.replace(/(document\.)?(cookie|location|write|domain)/gi, '');
+            // Remove encoded dangerous chars
+            clean = clean.replace(/(&#?\w+;)/gi, '');
+            // Trim and collapse multiple spaces
+            clean = clean.replace(/\s{2,}/g, ' ').trim();
+            return clean;
+        }
+
+        // --- Field-level validation ---
+        function validateName(value) {
+            if (!value || value.trim().length < 2) {
+                return { valid: false, message: 'Please enter your full name (at least 2 characters).' };
+            }
+            if (value.trim().length > 100) {
+                return { valid: false, message: 'Name is too long.' };
+            }
+            // Allow letters, spaces, hyphens, apostrophes, periods (for international names)
+            const nameRegex = /^[\p{L}\p{M}'\-. ]{2,100}$/u;
+            if (!nameRegex.test(value.trim())) {
+                return { valid: false, message: 'Name contains invalid characters.' };
+            }
+            return { valid: true };
+        }
+
+        function validateEmail(value) {
+            if (!value || value.trim().length === 0) {
+                return { valid: false, message: 'Please enter your email address.' };
+            }
+            // RFC-compliant-ish email regex
+            const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*\.[a-zA-Z]{2,}$/;
+            if (!emailRegex.test(value.trim())) {
+                return { valid: false, message: 'Please enter a valid email address.' };
+            }
+            // Block disposable email domains (basic list)
+            const disposableDomains = ['tempmail.com', 'throwaway.email', 'guerrillamail.com', 'mailinator.com', 'yopmail.com', '10minutemail.com'];
+            const domain = value.trim().split('@')[1]?.toLowerCase();
+            if (disposableDomains.includes(domain)) {
+                return { valid: false, message: 'Disposable email addresses are not allowed.' };
+            }
+            return { valid: true };
+        }
+
+        function validatePhone(value) {
+            if (!value || value.trim().length === 0) {
+                return { valid: false, message: 'Please enter your phone number.' };
+            }
+            const digits = value.replace(/[\s\-\+\(\)]/g, '');
+            if (!/^\d{7,15}$/.test(digits)) {
+                return { valid: false, message: 'Please enter a valid phone number (7-15 digits).' };
+            }
+            return { valid: true };
+        }
+
+        function validateMessage(value) {
+            if (!value || value.trim().length < 5) {
+                return { valid: false, message: 'Please enter a message (at least 5 characters).' };
+            }
+            if (value.trim().length > 2000) {
+                return { valid: false, message: 'Message is too long (max 2000 characters).' };
+            }
+            return { valid: true };
+        }
+
+        // --- Anti-automation detection ---
+        function runAntiAutomationCheck() {
+            const botSignals = [
+                navigator.webdriver === true,
+                !!window._phantom,
+                !!window.__nightmare,
+                !!window.callPhantom,
+                !!window.domAutomation,
+                !!window.selenium,
+                !!window.__selenium_unwrapped,
+                !!window.domAutomationController,
+                !!window.ChromeDriverw,
+                navigator.plugins.length === 0 && navigator.userAgent.indexOf('Chrome') > -1
+            ];
+
+            const signalCount = botSignals.filter(Boolean).length;
+            if (signalCount >= 2) {
+                // Subtly invalidate the form — don't alert the bot
+                sessionToken = 'invalidated';
+                document.getElementById('secToken').value = sessionToken;
+            }
+        }
+
+        // --- UI: Error display ---
+        function showFieldError(field, message) {
+            const errorEl = document.getElementById(field + 'Error');
+            const inputEl = document.getElementById(field === 'captcha' ? 'captchaInput' : field);
+            if (errorEl) {
+                errorEl.textContent = message;
+                errorEl.classList.add('visible');
+            }
+            if (inputEl) {
+                inputEl.classList.add('input-error');
+                inputEl.classList.remove('input-success');
+            }
+        }
+
+        function clearFieldError(field) {
+            const errorEl = document.getElementById(field + 'Error');
+            const inputEl = document.getElementById(field === 'captcha' ? 'captchaInput' : field);
+            if (errorEl) {
+                errorEl.textContent = '';
+                errorEl.classList.remove('visible');
+            }
+            if (inputEl) {
+                inputEl.classList.remove('input-error');
+            }
+        }
+
+        function markFieldSuccess(field) {
+            const inputEl = document.getElementById(field === 'captcha' ? 'captchaInput' : field);
+            if (inputEl) {
+                inputEl.classList.remove('input-error');
+                inputEl.classList.add('input-success');
+            }
+            clearFieldError(field);
+        }
+
+        // --- UI: Toast notifications ---
+        function showToast(message, type = 'error') {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+
+            const iconMap = {
+                error: 'fa-circle-exclamation',
+                success: 'fa-circle-check',
+                warning: 'fa-triangle-exclamation'
+            };
+
+            toast.innerHTML = `<i class="fa-solid ${iconMap[type] || iconMap.error}"></i> ${escapeHtml(message)}`;
+            container.appendChild(toast);
+
+            // Auto-remove after 5 seconds
+            setTimeout(() => {
+                toast.classList.add('removing');
+                setTimeout(() => toast.remove(), 300);
+            }, 5000);
+        }
+
+        // --- Utility: Escape HTML for safe display ---
+        function escapeHtml(str) {
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        }
+
+        // --- Utility: Random integer in range [min, max] ---
+        function randomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        // --- Main submit handler ---
+        function handleSubmit(event) {
+            event.preventDefault();
+
+            // Prevent double-submit
+            if (isSubmitting) {
+                showToast('Please wait, your message is being sent.', 'warning');
+                return false;
+            }
+
+            // 1. Honeypot check
+            if (isHoneypotTriggered()) {
+                // Silently pretend success — bot thinks it worked
+                showToast('Message sent successfully!', 'success');
+                return false;
+            }
+
+            // 2. Rate limit check
+            if (isRateLimited()) {
+                showToast('Too many submissions. Please wait and try again.', 'error');
+                return false;
+            }
+
+            // 3. Timestamp validation
+            const timeCheck = validateTimestamp();
+            if (!timeCheck.valid) {
+                showToast(timeCheck.message, 'error');
+                return false;
+            }
+
+            // 4. Token validation
+            const tokenCheck = validateToken();
+            if (!tokenCheck.valid) {
+                showToast(tokenCheck.message, 'error');
+                return false;
+            }
+
+            // 5. Gather & sanitize inputs
+            const nameRaw = document.getElementById('name').value;
+            const emailRaw = document.getElementById('email').value;
+            const phoneRaw = document.getElementById('phone').value;
+            const messageRaw = document.getElementById('message').value;
+            const captchaRaw = document.getElementById('captchaInput').value;
+
+            const nameVal = sanitize(nameRaw);
+            const emailVal = sanitize(emailRaw);
+            const phoneVal = sanitize(phoneRaw);
+            const messageVal = sanitize(messageRaw);
+
+            // Write sanitized values back
+            document.getElementById('name').value = nameVal;
+            document.getElementById('email').value = emailVal;
+            document.getElementById('phone').value = phoneVal;
+            document.getElementById('message').value = messageVal;
+
+            // 6. Field validation
+            let hasErrors = false;
+
+            const nameCheck = validateName(nameVal);
+            if (!nameCheck.valid) { showFieldError('name', nameCheck.message); hasErrors = true; }
+            else { markFieldSuccess('name'); }
+
+            const emailCheck = validateEmail(emailVal);
+            if (!emailCheck.valid) { showFieldError('email', emailCheck.message); hasErrors = true; }
+            else { markFieldSuccess('email'); }
+
+            const phoneCheck = validatePhone(phoneVal);
+            if (!phoneCheck.valid) { showFieldError('phone', phoneCheck.message); hasErrors = true; }
+            else { markFieldSuccess('phone'); }
+
+            const msgCheck = validateMessage(messageVal);
+            if (!msgCheck.valid) { showFieldError('message', msgCheck.message); hasErrors = true; }
+            else { markFieldSuccess('message'); }
+
+            // 7. CAPTCHA validation
+            if (!validateCaptcha(captchaRaw)) {
+                showFieldError('captcha', 'Incorrect answer. Please try again.');
+                hasErrors = true;
+                document.getElementById('captchaInput').classList.add('shake');
+                setTimeout(() => document.getElementById('captchaInput').classList.remove('shake'), 400);
+                generateCaptcha();
+            } else {
+                markFieldSuccess('captcha');
+            }
+
+            if (hasErrors) {
+                // Scroll to first error
+                const firstError = document.querySelector('.field-error.visible');
+                if (firstError) {
+                    firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+                return false;
+            }
+
+            // 8. All checks passed — submit the form
+            isSubmitting = true;
+            const btn = document.getElementById('submitBtn');
+            btn.disabled = true;
+            btn.classList.add('loading');
+
+            // Record this attempt
+            recordAttempt();
+
+            // Invalidate token so it can't be replayed
+            sessionToken = 'consumed_' + generateToken();
+
+            // Allow the native form submission to proceed
+            submitted = true;
+            document.getElementById('form1').submit();
+            return true;
+        }
+
+        // --- Live validation on blur ---
+        function attachLiveValidation() {
+            const fields = [
+                { id: 'name', validator: (v) => validateName(sanitize(v)), key: 'name' },
+                { id: 'email', validator: (v) => validateEmail(sanitize(v)), key: 'email' },
+                { id: 'phone', validator: (v) => validatePhone(sanitize(v)), key: 'phone' },
+                { id: 'message', validator: (v) => validateMessage(sanitize(v)), key: 'message' }
+            ];
+
+            fields.forEach(({ id, validator, key }) => {
+                const el = document.getElementById(id);
+                el.addEventListener('blur', () => {
+                    const val = el.value;
+                    if (val.trim().length === 0) {
+                        clearFieldError(key);
+                        el.classList.remove('input-success', 'input-error');
+                        return;
+                    }
+                    const result = validator(val);
+                    if (result.valid) {
+                        markFieldSuccess(key);
+                    } else {
+                        showFieldError(key, result.message);
+                    }
+                });
+
+                // Clear error on input
+                el.addEventListener('input', () => {
+                    clearFieldError(key);
+                    el.classList.remove('input-error');
+                });
+            });
+        }
+
+        // --- Event bindings ---
+        function bindEvents() {
+            // CAPTCHA refresh
+            document.getElementById('captchaRefresh').addEventListener('click', () => {
+                generateCaptcha();
+                document.getElementById('captchaInput').focus();
+            });
+
+            // Prevent paste on CAPTCHA
+            document.getElementById('captchaInput').addEventListener('paste', (e) => {
+                e.preventDefault();
+                showToast('Pasting is not allowed in this field.', 'warning');
+            });
+
+            // Prevent right-click on CAPTCHA question (anti-OCR)
+            document.getElementById('captchaQuestion').addEventListener('contextmenu', (e) => {
+                e.preventDefault();
+            });
+
+            // Block drag-and-drop on all form inputs
+            document.querySelectorAll('#form1 input, #form1 textarea').forEach(el => {
+                el.addEventListener('drop', (e) => e.preventDefault());
+            });
+
+            // Keyboard: Enter on CAPTCHA should not submit
+            document.getElementById('captchaInput').addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    // Just validate the captcha field
+                    const val = e.target.value;
+                    if (validateCaptcha(val)) {
+                        markFieldSuccess('captcha');
+                        document.getElementById('submitBtn').focus();
+                    } else {
+                        showFieldError('captcha', 'Incorrect answer. Please try again.');
+                        e.target.classList.add('shake');
+                        setTimeout(() => e.target.classList.remove('shake'), 400);
+                        generateCaptcha();
+                    }
+                }
+            });
+        }
+
+        // --- Public API ---
+        return {
+            init,
+            handleSubmit
+        };
+    })();
+
+
+    /* ============================================================
+       NON-SECURITY: Navigation, Search, etc.
+    ============================================================ */
+
+    // Hamburger menu toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+
+    // Search functionality with debounce
+    const navSearchInput = document.getElementById('navSearchInput');
+    const clearSearch = document.getElementById('clearSearch');
+
+    function debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    }
+
+    const performSearch = (query) => {
+        query = query.trim().toLowerCase().replace(/[^a-z0-9\s]/g, '');
+        if (query) {
+            window.location.href = `products.html?search=${encodeURIComponent(query)}`;
+        }
+    };
+
+    const debouncedSearch = debounce(performSearch, 300);
+
+    navSearchInput.addEventListener('input', () => {
+        const query = navSearchInput.value;
+        clearSearch.style.display = query ? 'block' : 'none';
+        debouncedSearch(query);
+    });
+
+    clearSearch.addEventListener('click', () => {
+        navSearchInput.value = '';
+        clearSearch.style.display = 'none';
+        navSearchInput.focus();
+    });
+
+    navSearchInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            performSearch(navSearchInput.value);
+        }
+        if (e.key === 'Escape') {
+            clearSearch.click();
+        }
+    });
+
+    // Expose submit handler to inline onsubmit
+    function handleFormSubmit(event) {
+        return FormShield.handleSubmit(event);
+    }
+
+    // Initialize security on DOM ready
+    document.addEventListener('DOMContentLoaded', FormShield.init);
+    </script>
+</body>
+</html>
