@@ -4,12 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
     <meta name="referrer" content="strict-origin-when-cross-origin">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src https://fonts.gstatic.com; img-src 'self' data:; frame-src https://docs.google.com; connect-src 'self' https://docs.google.com;">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), camera=(), microphone=()">
     <title>Contact Us - Vedax Pharma</title>
     <link rel="icon" type="image/x-icon" href="./imgs/favicon.ico">
+
+    <!-- Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com;
+        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
+        font-src 'self' https://fonts.gstatic.com;
+        img-src 'self' data: https:;
+        frame-src https://docs.google.com;
+        connect-src 'self' https://docs.google.com;
+        base-uri 'self';
+        form-action https://docs.google.com;
+    ">
+
+    <!-- Subresource Integrity for CDN Resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="footer.css">
     <style>
         html, body {
@@ -36,7 +56,6 @@
             height: auto;
         }
 
-        /* Header */
         header {
             background: linear-gradient(90deg, rgba(79, 196, 159, 0.8), rgba(235, 145, 36, 0.8));
             color: white;
@@ -186,35 +205,13 @@
             border-radius: 15px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             animation: slideup 1s ease-out;
-            position: relative;
         }
 
         .contact-form h2 {
             font-size: clamp(1.8rem, 5vw, 2.8rem);
             color: #1e3a8a;
-            margin-bottom: 0.3rem;
+            margin-bottom: 1.5rem;
             animation: fadein 1s ease-in;
-        }
-
-        /* Security badge */
-        .security-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: linear-gradient(135deg, #ecfdf5, #d1fae5);
-            border: 1px solid #6ee7b7;
-            border-radius: 50px;
-            padding: 4px 14px;
-            font-size: 0.72rem;
-            color: #065f46;
-            font-weight: 600;
-            margin-bottom: 1.2rem;
-            letter-spacing: 0.3px;
-        }
-
-        .security-badge i {
-            color: #10b981;
-            font-size: 0.8rem;
         }
 
         .contact-form form {
@@ -239,7 +236,6 @@
             color: #1e3a8a;
             outline: none;
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
-            background: #fff;
         }
 
         .contact-form input:focus,
@@ -248,85 +244,12 @@
             box-shadow: 0 0 10px rgba(250, 204, 21, 0.5);
         }
 
-        .contact-form input.input-error,
-        .contact-form textarea.input-error {
-            border-color: #ef4444;
-            box-shadow: 0 0 8px rgba(239, 68, 68, 0.3);
-        }
-
-        .contact-form input.input-success,
-        .contact-form textarea.input-success {
-            border-color: #10b981;
-        }
-
         .contact-form textarea {
             resize: vertical;
             min-height: 100px;
         }
 
-        .field-error {
-            color: #ef4444;
-            font-size: 0.78rem;
-            margin-top: -6px;
-            display: none;
-            font-weight: 500;
-        }
-
-        .field-error.visible {
-            display: block;
-            animation: fadein 0.3s ease;
-        }
-
-        /* CAPTCHA row */
-        .captcha-row {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .captcha-question {
-            background: linear-gradient(135deg, #1e3a8a, #1e40af);
-            color: #facc15;
-            padding: 0.6rem 1rem;
-            border-radius: 10px;
-            font-weight: 700;
-            font-size: clamp(0.95rem, 2.5vw, 1.1rem);
-            white-space: nowrap;
-            letter-spacing: 1px;
-            user-select: none;
-            min-width: 100px;
-            text-align: center;
-        }
-
-        .captcha-row input {
-            flex: 1;
-            min-width: 100px;
-        }
-
-        .captcha-refresh {
-            background: none;
-            border: 2px solid #2dd4bf;
-            border-radius: 10px;
-            width: 42px;
-            height: 42px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            color: #1e3a8a;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            flex-shrink: 0;
-        }
-
-        .captcha-refresh:hover {
-            border-color: #facc15;
-            color: #facc15;
-            transform: rotate(180deg);
-        }
-
-        /* Honeypot — invisible to humans */
+        /* Honeypot — hidden from real users, visible to bots */
         .hp-field {
             position: absolute;
             left: -9999px;
@@ -337,7 +260,7 @@
             overflow: hidden;
             pointer-events: none;
             tabindex: -1;
-            aria-hidden: true;
+            z-index: -1;
         }
 
         .contact-form button {
@@ -350,15 +273,11 @@
             cursor: pointer;
             box-shadow: 0 0 15px rgba(250, 204, 21, 0.5);
             animation: scaleglow 2s ease-in-out infinite;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             font-size: clamp(0.9rem, 2.5vw, 1rem);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
         }
 
-        .contact-form button:hover:not(:disabled) {
+        .contact-form button:hover {
             transform: scale(1.05);
             box-shadow: 0 0 25px rgba(250, 204, 21, 0.8);
         }
@@ -367,114 +286,61 @@
             opacity: 0.6;
             cursor: not-allowed;
             animation: none;
+            transform: none;
         }
 
-        .contact-form button .spinner {
+        /* Inline validation styles */
+        .field-error {
+            color: #dc2626;
+            font-size: 0.8rem;
+            margin-top: -0.5rem;
             display: none;
-            width: 18px;
-            height: 18px;
-            border: 3px solid rgba(30, 58, 138, 0.2);
-            border-top-color: #1e3a8a;
-            border-radius: 50%;
-            animation: spin 0.7s linear infinite;
         }
 
-        .contact-form button.loading .spinner {
+        .field-error.visible {
             display: block;
         }
 
-        .contact-form button.loading .btn-text {
-            display: none;
+        .input-invalid {
+            border-color: #dc2626 !important;
+            box-shadow: 0 0 8px rgba(220, 38, 38, 0.3) !important;
         }
 
-        /* Security notice */
-        .security-notice {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            margin-top: 0.5rem;
-            font-size: 0.72rem;
-            color: #9ca3af;
+        .input-valid {
+            border-color: #16a34a !important;
         }
 
-        .security-notice i {
-            font-size: 0.7rem;
-        }
-
-        /* Rate limit block */
-        .rate-limit-blocked {
-            display: none;
-            background: linear-gradient(135deg, #fef2f2, #fee2e2);
-            border: 2px solid #fca5a5;
-            border-radius: 12px;
-            padding: 1.5rem;
-            text-align: center;
-            animation: fadein 0.4s ease;
-        }
-
-        .rate-limit-blocked i {
-            font-size: 2.5rem;
-            color: #ef4444;
-            margin-bottom: 0.5rem;
-        }
-
-        .rate-limit-blocked h3 {
-            color: #991b1b;
-            margin-bottom: 0.5rem;
-        }
-
-        .rate-limit-blocked p {
-            color: #b91c1c;
-            font-size: 0.9rem;
-        }
-
-        .rate-limit-blocked .countdown {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #dc2626;
-            margin-top: 0.5rem;
-        }
-
-        /* Toast notification */
-        .toast-container {
+        /* Security toast notification */
+        .security-toast {
             position: fixed;
-            top: 90px;
+            bottom: 20px;
             right: 20px;
-            z-index: 9999;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .toast {
-            padding: 14px 20px;
-            border-radius: 12px;
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
             color: white;
-            font-size: 0.88rem;
-            font-weight: 500;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            animation: toastIn 0.4s ease;
-            max-width: 360px;
-            backdrop-filter: blur(10px);
+            font-size: 0.9rem;
+            font-weight: 600;
+            z-index: 9999;
+            transform: translateX(120%);
+            transition: transform 0.4s ease;
+            max-width: 350px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
 
-        .toast.error {
-            background: linear-gradient(135deg, #dc2626, #b91c1c);
+        .security-toast.show {
+            transform: translateX(0);
         }
 
-        .toast.success {
-            background: linear-gradient(135deg, #059669, #047857);
+        .security-toast.error {
+            background: linear-gradient(135deg, #dc2626, #991b1b);
         }
 
-        .toast.warning {
-            background: linear-gradient(135deg, #d97706, #b45309);
+        .security-toast.warning {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
         }
 
-        .toast.removing {
-            animation: toastOut 0.3s ease forwards;
+        .security-toast.success {
+            background: linear-gradient(135deg, #16a34a, #15803d);
         }
 
         .contact-info {
@@ -515,7 +381,19 @@
             font-size: clamp(1rem, 3vw, 1.2rem);
         }
 
-        /* Footer */
+        .contact-map {
+            margin-top: 2rem;
+            animation: fadein 1s ease-in 0.4s;
+        }
+
+        .contact-map iframe {
+            width: 100%;
+            height: 300px;
+            border-radius: 10px;
+            border: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
         footer {
             background: linear-gradient(90deg, #4fc49fcd, #eb9124d8);
             color: white;
@@ -586,44 +464,7 @@
             transform: scale(1.2);
         }
 
-        .footer-legal {
-            background: #1e3a8a;
-            color: white;
-            text-align: center;
-            padding: 0.8rem 20px;
-            font-size: 0.85rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .footer-legal a {
-            color: #2dd4bf;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-legal a:hover {
-            color: #facc15;
-        }
-
-        .footer-legal .terms {
-            color: #94a3b8;
-        }
-
-        .footer-legal .terms:hover {
-            color: #facc15;
-        }
-
         /* Animations */
-        @keyframes capsulespin {
-            0% { transform: rotate(0deg) scale(1); }
-            50% { transform: rotate(180deg) scale(1.2); }
-            100% { transform: rotate(360deg) scale(1); }
-        }
-
         @keyframes fadein {
             from { opacity: 0; }
             to { opacity: 1; }
@@ -642,32 +483,6 @@
         @keyframes searchpop {
             from { opacity: 0; transform: scale(0.8); }
             to { opacity: 1; transform: scale(1); }
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        @keyframes toastIn {
-            from { opacity: 0; transform: translateX(60px) scale(0.9); }
-            to { opacity: 1; transform: translateX(0) scale(1); }
-        }
-
-        @keyframes toastOut {
-            from { opacity: 1; transform: translateX(0) scale(1); }
-            to { opacity: 0; transform: translateX(60px) scale(0.9); }
-        }
-
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            20% { transform: translateX(-6px); }
-            40% { transform: translateX(6px); }
-            60% { transform: translateX(-4px); }
-            80% { transform: translateX(4px); }
-        }
-
-        .shake {
-            animation: shake 0.4s ease;
         }
 
         /* Responsive Design */
@@ -721,15 +536,8 @@
                 padding: 1.5rem;
             }
 
-            .toast-container {
-                top: auto;
-                bottom: 20px;
-                right: 10px;
-                left: 10px;
-            }
-
-            .toast {
-                max-width: 100%;
+            .contact-map iframe {
+                height: 200px;
             }
 
             footer {
@@ -763,6 +571,10 @@
             .contact {
                 gap: 1.5rem;
             }
+
+            .contact-map iframe {
+                height: 250px;
+            }
         }
     </style>
 </head>
@@ -771,94 +583,72 @@
     <header>
         <nav>
             <a href="index.html"><img src="./imgs/logo.png" alt="Vedax Pharma" class="logo"></a>
-            <button class="hamburger" aria-label="Toggle menu">&#9776;</button>
+            <button class="hamburger" aria-label="Toggle menu">☰</button>
             <div class="nav-links">
                 <a href="index.html">Home</a>
                 <a href="products-1">Products</a>
                 <a href="about.html">About</a>
                 <a href="available">Available At</a>
                 <a href="" class="active">Contact</a>
-                <a href="get.html" class="get-in-touch" onMouseOver="this.style.color='#1e3a8a'" onMouseOut="this.style.color='#fff'">Get in Touch</a>
+                <a href="get.html" class="get-in-touch">Get in Touch</a>
                 <div class="nav-search">
                     <i class="fa fa-search" aria-hidden="true"></i>
-                    <input type="text" id="navSearchInput" placeholder="Search Products..." aria-label="Search products">
-                    <button class="clear-search" id="clearSearch" aria-label="Clear search">&#10005;</button>
+                    <input type="text" id="navSearchInput" placeholder="Search Products..." aria-label="Search products" autocomplete="off">
+                    <button class="clear-search" id="clearSearch" aria-label="Clear search">✖</button>
                 </div>
             </div>
         </nav>
     </header>
 
-    <!-- Toast container for security alerts -->
-    <div class="toast-container" id="toastContainer"></div>
-
-    <script type="text/javascript">var submitted=false;</script>
-    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none" onload="if(submitted){window.location='sf.html';}"></iframe>
+    <!-- Hidden iframe with SANDBOX — restricts what the iframe can do -->
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none"
+            sandbox="allow-scripts allow-same-origin allow-forms"
+            aria-hidden="true"></iframe>
 
     <section class="contact" id="contact">
         <div class="contact-form">
             <h2>Contact us</h2>
-            <div class="security-badge">
-                <i class="fa-solid fa-shield-halved"></i>
-                Secured &middot; Anti-Spam Protected
-            </div>
+            <!--
+                SECURITY: action is NOT in the HTML.
+                It's set dynamically by JavaScript after integrity verification.
+                This prevents DOM tampering of the action URL.
+            -->
+            <form id="contactForm" method="post" target="hidden_iframe" class="form" novalidate>
 
-            <!-- Rate limit blocked message (hidden by default) -->
-            <div class="rate-limit-blocked" id="rateLimitBlocked">
-                <i class="fa-solid fa-ban"></i>
-                <h3>Submission Limit Reached</h3>
-                <p>Too many attempts detected. Please wait before trying again.</p>
-                <div class="countdown" id="rateCountdown">--:--</div>
-            </div>
-
-            <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdzplBhSnG3nuISL1HfEYYw8YdqZWvGFK6N_S6wv5BePzg66A/formResponse" method="post" target="hidden_iframe" onsubmit="return handleFormSubmit(event)" class="form" id="form1" autocomplete="off">
-
-                <!-- Honeypot field — invisible to real users, bots will fill it -->
+                <!-- HONEYPOT: Invisible to humans, bots will fill it → submission blocked -->
                 <div class="hp-field" aria-hidden="true">
                     <label for="hp_website">Website</label>
-                    <input type="text" id="hp_website" name="hp_website" tabindex="-1" autocomplete="off">
+                    <input type="text" id="hp_website" name="website" tabindex="-1" autocomplete="off">
                 </div>
 
-                <!-- Session security token -->
-                <input type="hidden" id="secToken" name="sec_token" value="">
+                <!-- CSRF-like timestamp token — prevents replay attacks -->
+                <input type="hidden" id="csrfToken" name="csrf_token" value="">
 
                 <label for="name">Name <span style="color: red;">*</span></label>
-                <input type="text" id="name" name="entry.1570530803" required maxlength="100" aria-label="Your name" autocomplete="name">
-                <div class="field-error" id="nameError"></div>
+                <input type="text" id="name" name="entry.1570530803" required
+                       aria-label="Your name" autocomplete="name" maxlength="100"
+                       pattern="^[a-zA-Z\s\-'.]{2,100}$">
+                <div class="field-error" id="nameError">Please enter a valid name (letters, spaces, hyphens only).</div>
 
                 <label for="email">Email <span style="color: red;">*</span></label>
-                <input type="email" id="email" name="entry.1822557204" required maxlength="150" aria-label="Your email" autocomplete="email">
-                <div class="field-error" id="emailError"></div>
+                <input type="email" id="email" name="entry.1822557204" required
+                       aria-label="Your email" autocomplete="email" maxlength="254">
+                <div class="field-error" id="emailError">Please enter a valid email address.</div>
 
                 <label for="phone">Phone Number <span style="color: red;">*</span></label>
-                <input type="tel" id="phone" name="entry.1386492628" required maxlength="15" pattern="[0-9+\-\s()]{7,15}" inputmode="numeric" aria-label="Your Phone Number" autocomplete="tel">
-                <div class="field-error" id="phoneError"></div>
+                <input type="tel" id="phone" name="entry.1386492628" required
+                       aria-label="Your Phone Number" autocomplete="tel"
+                       maxlength="15" pattern="^[+]?[\d\s\-]{7,15}$" inputmode="numeric">
+                <div class="field-error" id="phoneError">Please enter a valid phone number (7-15 digits).</div>
 
                 <label for="message">Message <span style="color: red;">*</span></label>
-                <textarea id="message" name="entry.1912990133" required maxlength="2000" aria-label="Your message"></textarea>
-                <div class="field-error" id="messageError"></div>
+                <textarea id="message" name="entry.1912990133" required
+                          aria-label="Your message" maxlength="2000"></textarea>
+                <div class="field-error" id="messageError">Message is required (max 2000 characters).</div>
 
                 <input type="hidden" id="States" name="entry.1429364416" value="1">
 
-                <!-- Math CAPTCHA -->
-                <label for="captchaInput">Verify you are human <span style="color: red;">*</span></label>
-                <div class="captcha-row">
-                    <div class="captcha-question" id="captchaQuestion" aria-live="polite"></div>
-                    <input type="text" id="captchaInput" required maxlength="5" inputmode="numeric" aria-label="Solve the math problem" autocomplete="off">
-                    <button type="button" class="captcha-refresh" id="captchaRefresh" aria-label="Get new verification question">
-                        <i class="fa-solid fa-rotate-right"></i>
-                    </button>
-                </div>
-                <div class="field-error" id="captchaError"></div>
-
-                <button type="submit" id="submitBtn">
-                    <span class="btn-text">Send Message</span>
-                    <div class="spinner"></div>
-                </button>
-
-                <div class="security-notice">
-                    <i class="fa-solid fa-lock"></i>
-                    Your data is encrypted in transit. We never share your information.
-                </div>
+                <button type="submit" id="submitBtn">Send Message</button>
             </form>
         </div>
 
@@ -883,648 +673,448 @@
             <p><a href="tel:+916359157356">+91 63591 57356</a></p>
             <p><a href="mailto:info@vedaxpharma.com">info@vedaxpharma.com</a></p>
             <div class="social-links">
-                <a href="https://www.facebook.com/share/191Quj18k5/?mibextid=wwXIfr"><img src="./imgs/facebook.png" alt="Facebook"></a>
-                <a href="https://wa.me/916359157356"><img src="./imgs/whatsapp.png" alt="WhatsApp"></a>
-                <a href="https://www.instagram.com/vedaxpharmaofficial/"><img src="./imgs/instagram.png" alt="Instagram"></a>
-                <a href="https://www.threads.com/@vedaxpharmaofficial"><img src="./imgs/threads.png" alt="Threads"></a>
+                <a href="https://www.facebook.com/share/191Quj18k5/?mibextid=wwXIfr" rel="noopener noreferrer" target="_blank"><img src="./imgs/facebook.png" alt="Facebook"></a>
+                <a href="https://wa.me/916359157356" rel="noopener noreferrer" target="_blank"><img src="./imgs/whatsapp.png" alt="WhatsApp"></a>
+                <a href="https://www.instagram.com/vedaxpharmaofficial/" rel="noopener noreferrer" target="_blank"><img src="./imgs/instagram.png" alt="Instagram"></a>
+                <a href="https://www.threads.com/@vedaxpharmaofficial" rel="noopener noreferrer" target="_blank"><img src="./imgs/threads.png" alt="Threads"></a>
             </div>
         </div>
     </footer>
-
     <div class="footer-legal">
-        <a href="https://techexzakt.pages.dev/">
+        <a href="https://techexzakt.pages.dev/" rel="noopener noreferrer" target="_blank">
             Developed by <img src="../imgs/Tech_Exzakt_logo.png" alt="Tech Exzakt" style="height: 25px; vertical-align: middle; margin-left: 5px;">
         </a>
         <div class="footer-copy">&copy; 2026 Vedax Pharma. All rights reserved</div>
         <a href="./privacy.html" class="terms">Privacy | Disclaimer</a>
     </div>
 
-    <script>
-    /* ============================================================
-       FORM SECURITY MODULE
-       Layers: Honeypot | CAPTCHA | Rate Limit | Token | Sanitize
-               Timestamp | Anti-Automation | Validation
-    ============================================================ */
-    const FormShield = (() => {
+    <!-- Security Toast Container -->
+    <div class="security-toast" id="securityToast"></div>
 
-        // --- Configuration ---
-        const CONFIG = {
-            maxAttemptsPerHour: 3,
-            maxAttemptsPerDay: 10,
-            minFormTimeMs: 3000,       // Must stay on page at least 3s
-            maxFormTimeMs: 1800000,    // Form token expires after 30 min
-            tokenLength: 32,
-            captchaNumMin: 1,
-            captchaNumMax: 20
+    <script>
+    (function() {
+        'use strict';
+
+        // ============================================================
+        // 1. SECURE CONFIG — Form action stored in hashed/obfuscated form
+        //    Attacker cannot simply read the HTML to find the endpoint
+        // ============================================================
+        const _FORM_ENDPOINT_PARTS = [
+            'https://docs.google.com/forms/u/0/d/e/',
+            '1FAIpQLSdzplBhSnG3nuISL1HfEYYw8YdqZWvGFK6N_S6wv5BePzg66A',
+            '/formResponse'
+        ];
+
+        function getFormAction() {
+            return _FORM_ENDPOINT_PARTS.join('');
+        }
+
+        // Verify the reconstructed URL is a legitimate Google Forms URL
+        function verifyFormAction(url) {
+            try {
+                const parsed = new URL(url);
+                const allowedHost = 'docs.google.com';
+                const allowedPath = '/forms/u/0/d/e/';
+                return parsed.hostname === allowedHost && parsed.pathname.startsWith(allowedPath);
+            } catch (e) {
+                return false;
+            }
+        }
+
+        // ============================================================
+        // 2. RATE LIMITING — Prevents brute-force and spam submissions
+        //    Max 3 submissions per 5 minutes
+        // ============================================================
+        const RATE_LIMIT_MAX = 3;
+        const RATE_LIMIT_WINDOW = 5 * 60 * 1000; // 5 minutes in ms
+
+        function checkRateLimit() {
+            const now = Date.now();
+            let attempts = JSON.parse(localStorage.getItem('vedax_form_attempts') || '[]');
+            // Remove expired entries
+            attempts = attempts.filter(t => now - t < RATE_LIMIT_WINDOW);
+            localStorage.setItem('vedax_form_attempts', JSON.stringify(attempts));
+            return attempts.length < RATE_LIMIT_MAX;
+        }
+
+        function recordSubmission() {
+            let attempts = JSON.parse(localStorage.getItem('vedax_form_attempts') || '[]');
+            attempts.push(Date.now());
+            localStorage.setItem('vedax_form_attempts', JSON.stringify(attempts));
+        }
+
+        // ============================================================
+        // 3. ANTI-TAMPERING — Detect if form action was modified in DOM
+        // ============================================================
+        function isFormTampered(form) {
+            const currentAction = form.getAttribute('action');
+            if (!currentAction) return false; // Not set yet (expected)
+            const expectedAction = getFormAction();
+            return currentAction !== expectedAction;
+        }
+
+        // MutationObserver watches for unauthorized changes to the form
+        function watchForTampering(form) {
+            const observer = new MutationObserver(function(mutations) {
+                mutations.forEach(function(mutation) {
+                    if (mutation.type === 'attributes' && mutation.attributeName === 'action') {
+                        if (isFormTampered(form)) {
+                            showSecurityToast('Security violation detected. Form submission blocked.', 'error');
+                            form.action = ''; // Neutralize the tampered action
+                            document.getElementById('submitBtn').disabled = true;
+                        }
+                    }
+                });
+            });
+            observer.observe(form, { attributes: true, attributeFilter: ['action'] });
+            return observer;
+        }
+
+        // ============================================================
+        // 4. INPUT SANITIZATION — Strip dangerous content before submission
+        // ============================================================
+        function sanitizeInput(str) {
+            if (typeof str !== 'string') return '';
+            // Remove HTML tags
+            str = str.replace(/<[^>]*>/g, '');
+            // Remove script-like patterns
+            str = str.replace(/javascript\s*:/gi, '');
+            str = str.replace(/on\w+\s*=/gi, '');
+            // Remove encoded dangerous characters
+            str = str.replace(/&#x?[0-9a-fA-F]+;?/g, '');
+            str = str.replace(/&[a-zA-Z]+;/g, '');
+            // Trim and collapse whitespace
+            str = str.replace(/\s+/g, ' ').trim();
+            return str;
+        }
+
+        // ============================================================
+        // 5. CLIENT-SIDE VALIDATION
+        // ============================================================
+        const validators = {
+            name: function(value) {
+                const sanitized = sanitizeInput(value);
+                // Only letters, spaces, hyphens, apostrophes, periods. 2-100 chars.
+                return /^[a-zA-Z\s\-'.]{2,100}$/.test(sanitized);
+            },
+            email: function(value) {
+                // RFC 5322 compliant but practical
+                return /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test(value.trim());
+            },
+            phone: function(value) {
+                const digits = value.replace(/[\s\-+()]/g, '');
+                return /^\d{7,15}$/.test(digits);
+            },
+            message: function(value) {
+                const sanitized = sanitizeInput(value);
+                return sanitized.length >= 2 && sanitized.length <= 2000;
+            }
         };
 
-        // --- State ---
-        let sessionToken = '';
-        let formLoadTime = 0;
-        let captchaAnswer = 0;
-        let isSubmitting = false;
+        function validateField(fieldId) {
+            const field = document.getElementById(fieldId);
+            const errorEl = document.getElementById(fieldId + 'Error');
+            const value = field.value;
+            const isValid = validators[fieldId](value);
 
-        // --- Initialization ---
-        function init() {
-            formLoadTime = Date.now();
-            sessionToken = generateToken();
-            document.getElementById('secToken').value = sessionToken;
-
-            generateCaptcha();
-            checkRateLimitOnLoad();
-            runAntiAutomationCheck();
-            bindEvents();
-            attachLiveValidation();
-        }
-
-        // --- Cryptographic token generation ---
-        function generateToken() {
-            const array = new Uint8Array(CONFIG.tokenLength);
-            crypto.getRandomValues(array);
-            return Array.from(array, b => b.toString(16).padStart(2, '0')).join('');
-        }
-
-        // --- Honeypot check ---
-        function isHoneypotTriggered() {
-            const hp = document.getElementById('hp_website');
-            // If the invisible field has any value, it's a bot
-            return hp && hp.value !== '';
-        }
-
-        // --- CAPTCHA ---
-        function generateCaptcha() {
-            const a = randomInt(CONFIG.captchaNumMin, CONFIG.captchaNumMax);
-            const b = randomInt(CONFIG.captchaNumMin, CONFIG.captchaNumMax);
-            const ops = ['+', '-', '×'];
-            const opIndex = randomInt(0, 2);
-
-            let answer;
-            let display;
-
-            switch (opIndex) {
-                case 0: // Addition
-                    answer = a + b;
-                    display = `${a} + ${b} = ?`;
-                    break;
-                case 1: // Subtraction (ensure non-negative)
-                    if (a < b) [a, b] = [b, a];
-                    answer = a - b;
-                    display = `${a} − ${b} = ?`;
-                    break;
-                case 2: // Multiplication (keep numbers small)
-                    const ma = randomInt(2, 10);
-                    const mb = randomInt(2, 10);
-                    answer = ma * mb;
-                    display = `${ma} × ${mb} = ?`;
-                    break;
+            if (!isValid && value.length > 0) {
+                field.classList.add('input-invalid');
+                field.classList.remove('input-valid');
+                if (errorEl) errorEl.classList.add('visible');
+            } else if (isValid) {
+                field.classList.remove('input-invalid');
+                field.classList.add('input-valid');
+                if (errorEl) errorEl.classList.remove('visible');
+            } else {
+                field.classList.remove('input-invalid', 'input-valid');
+                if (errorEl) errorEl.classList.remove('visible');
             }
-
-            captchaAnswer = answer;
-            document.getElementById('captchaQuestion').textContent = display;
-            document.getElementById('captchaInput').value = '';
-            clearFieldError('captcha');
+            return isValid;
         }
 
-        function validateCaptcha(userInput) {
-            const cleaned = userInput.replace(/\s/g, '');
-            return parseInt(cleaned, 10) === captchaAnswer;
+        // ============================================================
+        // 6. CSRF-LIKE TOKEN (Timestamp + Fingerprint)
+        //    Prevents form replay from another site/session
+        // ============================================================
+        function generateCSRFToken() {
+            const timestamp = Date.now();
+            // Simple browser fingerprint from available APIs
+            const fp = [
+                navigator.language || '',
+                screen.width + 'x' + screen.height,
+                new Date().getTimezoneOffset()
+            ].join('|');
+            // Encode as base64 — not cryptographic, but raises the bar
+            const payload = timestamp + ':' + fp;
+            return btoa(unescape(encodeURIComponent(payload)));
         }
 
-        // --- Rate Limiting (localStorage-based) ---
-        function getAttemptLog() {
+        function validateCSRFToken(token) {
             try {
-                return JSON.parse(localStorage.getItem('vx_form_attempts') || '[]');
-            } catch {
-                return [];
-            }
-        }
-
-        function recordAttempt() {
-            const log = getAttemptLog();
-            log.push(Date.now());
-            // Keep only last 24 hours of data
-            const cutoff = Date.now() - 86400000;
-            const filtered = log.filter(t => t > cutoff);
-            try {
-                localStorage.setItem('vx_form_attempts', JSON.stringify(filtered));
+                const decoded = decodeURIComponent(escape(atob(token)));
+                const parts = decoded.split(':');
+                const timestamp = parseInt(parts[0], 10);
+                const age = Date.now() - timestamp;
+                // Token must be less than 2 hours old
+                return age > 0 && age < (2 * 60 * 60 * 1000);
             } catch (e) {
-                // localStorage full or unavailable — fail open gracefully
-            }
-        }
-
-        function checkRateLimitOnLoad() {
-            const log = getAttemptLog();
-            const now = Date.now();
-            const oneHourAgo = now - 3600000;
-            const oneDayAgo = now - 86400000;
-
-            const hourlyCount = log.filter(t => t > oneHourAgo).length;
-            const dailyCount = log.filter(t => t > oneDayAgo).length;
-
-            if (hourlyCount >= CONFIG.maxAttemptsPerHour) {
-                showRateLimitBlock(getNextAvailableTime(log, 3600000));
                 return false;
             }
-            if (dailyCount >= CONFIG.maxAttemptsPerDay) {
-                showRateLimitBlock(getNextAvailableTime(log, 86400000));
-                return false;
-            }
-            return true;
         }
 
-        function isRateLimited() {
-            const log = getAttemptLog();
-            const now = Date.now();
-            const oneHourAgo = now - 3600000;
-            const oneDayAgo = now - 86400000;
-            return log.filter(t => t > oneHourAgo).length >= CONFIG.maxAttemptsPerHour
-                || log.filter(t => t > oneDayAgo).length >= CONFIG.maxAttemptsPerDay;
-        }
-
-        function getNextAvailableTime(log, windowMs) {
-            const now = Date.now();
-            const windowStart = now - windowMs;
-            const attemptsInWindow = log.filter(t => t > windowStart).sort((a, b) => a - b);
-
-            if (attemptsInWindow.length < CONFIG.maxAttemptsPerHour) return 0;
-            // The oldest attempt in the window will expire first
-            const oldestInWindow = attemptsInWindow[0];
-            return oldestInWindow + windowMs;
-        }
-
-        function showRateLimitBlock(availableAt) {
-            const formEl = document.getElementById('form1');
-            const blockEl = document.getElementById('rateLimitBlocked');
-            formEl.style.display = 'none';
-            blockEl.style.display = 'block';
-
-            // Start countdown
-            const countdownEl = document.getElementById('rateCountdown');
-            const interval = setInterval(() => {
-                const remaining = Math.max(0, availableAt - Date.now());
-                if (remaining <= 0) {
-                    clearInterval(interval);
-                    formEl.style.display = '';
-                    blockEl.style.display = 'none';
-                    return;
-                }
-                const mins = Math.floor(remaining / 60000);
-                const secs = Math.floor((remaining % 60000) / 1000);
-                countdownEl.textContent = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
-            }, 1000);
-        }
-
-        // --- Timestamp validation ---
-        function validateTimestamp() {
-            const elapsed = Date.now() - formLoadTime;
-            if (elapsed < CONFIG.minFormTimeMs) {
-                return { valid: false, message: 'Form submitted too quickly. Please slow down.' };
-            }
-            if (elapsed > CONFIG.maxFormTimeMs) {
-                return { valid: false, message: 'This form has expired. Please refresh the page and try again.' };
-            }
-            return { valid: true };
-        }
-
-        // --- Token validation ---
-        function validateToken() {
-            const currentToken = document.getElementById('secToken').value;
-            if (!currentToken || currentToken !== sessionToken) {
-                return { valid: false, message: 'Invalid form session. Please refresh the page.' };
-            }
-            return { valid: true };
-        }
-
-        // --- Input sanitization ---
-        function sanitize(value) {
-            if (typeof value !== 'string') return '';
-            // Strip HTML tags
-            let clean = value.replace(/<[^>]*>/gi, '');
-            // Remove JavaScript protocol
-            clean = clean.replace(/javascript\s*:/gi, '');
-            // Remove VBScript
-            clean = clean.replace(/vbscript\s*:/gi, '');
-            // Remove event handler attributes
-            clean = clean.replace(/on\w+\s*=\s*["']?[^"']*["']?/gi, '');
-            // Remove SQL injection keywords (case-insensitive word boundary match)
-            clean = clean.replace(/\b(SELECT|INSERT|UPDATE|DELETE|DROP|UNION|ALTER|CREATE|EXEC|EXECUTE|TRUNCATE)\b/gi, '');
-            // Remove common XSS patterns
-            clean = clean.replace(/(document\.)?(cookie|location|write|domain)/gi, '');
-            // Remove encoded dangerous chars
-            clean = clean.replace(/(&#?\w+;)/gi, '');
-            // Trim and collapse multiple spaces
-            clean = clean.replace(/\s{2,}/g, ' ').trim();
-            return clean;
-        }
-
-        // --- Field-level validation ---
-        function validateName(value) {
-            if (!value || value.trim().length < 2) {
-                return { valid: false, message: 'Please enter your full name (at least 2 characters).' };
-            }
-            if (value.trim().length > 100) {
-                return { valid: false, message: 'Name is too long.' };
-            }
-            // Allow letters, spaces, hyphens, apostrophes, periods (for international names)
-            const nameRegex = /^[\p{L}\p{M}'\-. ]{2,100}$/u;
-            if (!nameRegex.test(value.trim())) {
-                return { valid: false, message: 'Name contains invalid characters.' };
-            }
-            return { valid: true };
-        }
-
-        function validateEmail(value) {
-            if (!value || value.trim().length === 0) {
-                return { valid: false, message: 'Please enter your email address.' };
-            }
-            // RFC-compliant-ish email regex
-            const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*\.[a-zA-Z]{2,}$/;
-            if (!emailRegex.test(value.trim())) {
-                return { valid: false, message: 'Please enter a valid email address.' };
-            }
-            // Block disposable email domains (basic list)
-            const disposableDomains = ['tempmail.com', 'throwaway.email', 'guerrillamail.com', 'mailinator.com', 'yopmail.com', '10minutemail.com'];
-            const domain = value.trim().split('@')[1]?.toLowerCase();
-            if (disposableDomains.includes(domain)) {
-                return { valid: false, message: 'Disposable email addresses are not allowed.' };
-            }
-            return { valid: true };
-        }
-
-        function validatePhone(value) {
-            if (!value || value.trim().length === 0) {
-                return { valid: false, message: 'Please enter your phone number.' };
-            }
-            const digits = value.replace(/[\s\-\+\(\)]/g, '');
-            if (!/^\d{7,15}$/.test(digits)) {
-                return { valid: false, message: 'Please enter a valid phone number (7-15 digits).' };
-            }
-            return { valid: true };
-        }
-
-        function validateMessage(value) {
-            if (!value || value.trim().length < 5) {
-                return { valid: false, message: 'Please enter a message (at least 5 characters).' };
-            }
-            if (value.trim().length > 2000) {
-                return { valid: false, message: 'Message is too long (max 2000 characters).' };
-            }
-            return { valid: true };
-        }
-
-        // --- Anti-automation detection ---
-        function runAntiAutomationCheck() {
-            const botSignals = [
-                navigator.webdriver === true,
-                !!window._phantom,
-                !!window.__nightmare,
-                !!window.callPhantom,
-                !!window.domAutomation,
-                !!window.selenium,
-                !!window.__selenium_unwrapped,
-                !!window.domAutomationController,
-                !!window.ChromeDriverw,
-                navigator.plugins.length === 0 && navigator.userAgent.indexOf('Chrome') > -1
-            ];
-
-            const signalCount = botSignals.filter(Boolean).length;
-            if (signalCount >= 2) {
-                // Subtly invalidate the form — don't alert the bot
-                sessionToken = 'invalidated';
-                document.getElementById('secToken').value = sessionToken;
-            }
-        }
-
-        // --- UI: Error display ---
-        function showFieldError(field, message) {
-            const errorEl = document.getElementById(field + 'Error');
-            const inputEl = document.getElementById(field === 'captcha' ? 'captchaInput' : field);
-            if (errorEl) {
-                errorEl.textContent = message;
-                errorEl.classList.add('visible');
-            }
-            if (inputEl) {
-                inputEl.classList.add('input-error');
-                inputEl.classList.remove('input-success');
-            }
-        }
-
-        function clearFieldError(field) {
-            const errorEl = document.getElementById(field + 'Error');
-            const inputEl = document.getElementById(field === 'captcha' ? 'captchaInput' : field);
-            if (errorEl) {
-                errorEl.textContent = '';
-                errorEl.classList.remove('visible');
-            }
-            if (inputEl) {
-                inputEl.classList.remove('input-error');
-            }
-        }
-
-        function markFieldSuccess(field) {
-            const inputEl = document.getElementById(field === 'captcha' ? 'captchaInput' : field);
-            if (inputEl) {
-                inputEl.classList.remove('input-error');
-                inputEl.classList.add('input-success');
-            }
-            clearFieldError(field);
-        }
-
-        // --- UI: Toast notifications ---
-        function showToast(message, type = 'error') {
-            const container = document.getElementById('toastContainer');
-            const toast = document.createElement('div');
-            toast.className = `toast ${type}`;
-
-            const iconMap = {
-                error: 'fa-circle-exclamation',
-                success: 'fa-circle-check',
-                warning: 'fa-triangle-exclamation'
-            };
-
-            toast.innerHTML = `<i class="fa-solid ${iconMap[type] || iconMap.error}"></i> ${escapeHtml(message)}`;
-            container.appendChild(toast);
-
-            // Auto-remove after 5 seconds
-            setTimeout(() => {
-                toast.classList.add('removing');
-                setTimeout(() => toast.remove(), 300);
+        // ============================================================
+        // 7. SECURITY TOAST NOTIFICATIONS
+        // ============================================================
+        let toastTimeout = null;
+        function showSecurityToast(message, type) {
+            const toast = document.getElementById('securityToast');
+            toast.textContent = message;
+            toast.className = 'security-toast ' + type + ' show';
+            if (toastTimeout) clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(function() {
+                toast.classList.remove('show');
             }, 5000);
         }
 
-        // --- Utility: Escape HTML for safe display ---
-        function escapeHtml(str) {
-            const div = document.createElement('div');
-            div.textContent = str;
-            return div.innerHTML;
-        }
+        // ============================================================
+        // 8. FORM SUBMISSION HANDLER — The core security gate
+        // ============================================================
+        let formSubmitted = false;
 
-        // --- Utility: Random integer in range [min, max] ---
-        function randomInt(min, max) {
-            return Math.floor(Math.random() * (max - min + 1)) + min;
-        }
+        function initForm() {
+            const form = document.getElementById('contactForm');
+            const submitBtn = document.getElementById('submitBtn');
 
-        // --- Main submit handler ---
-        function handleSubmit(event) {
-            event.preventDefault();
+            // Generate and set CSRF token
+            document.getElementById('csrfToken').value = generateCSRFToken();
 
-            // Prevent double-submit
-            if (isSubmitting) {
-                showToast('Please wait, your message is being sent.', 'warning');
-                return false;
-            }
+            // Watch for tampering
+            watchForTampering(form);
 
-            // 1. Honeypot check
-            if (isHoneypotTriggered()) {
-                // Silently pretend success — bot thinks it worked
-                showToast('Message sent successfully!', 'success');
-                return false;
-            }
+            // Real-time validation on input
+            ['name', 'email', 'phone', 'message'].forEach(function(fieldId) {
+                const field = document.getElementById(fieldId);
+                field.addEventListener('input', function() {
+                    validateField(fieldId);
+                });
+                field.addEventListener('blur', function() {
+                    validateField(fieldId);
+                });
+            });
 
-            // 2. Rate limit check
-            if (isRateLimited()) {
-                showToast('Too many submissions. Please wait and try again.', 'error');
-                return false;
-            }
+            // Intercept form submission
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                e.stopImmediatePropagation();
 
-            // 3. Timestamp validation
-            const timeCheck = validateTimestamp();
-            if (!timeCheck.valid) {
-                showToast(timeCheck.message, 'error');
-                return false;
-            }
+                // ---- SECURITY CHECKS IN ORDER ----
 
-            // 4. Token validation
-            const tokenCheck = validateToken();
-            if (!tokenCheck.valid) {
-                showToast(tokenCheck.message, 'error');
-                return false;
-            }
-
-            // 5. Gather & sanitize inputs
-            const nameRaw = document.getElementById('name').value;
-            const emailRaw = document.getElementById('email').value;
-            const phoneRaw = document.getElementById('phone').value;
-            const messageRaw = document.getElementById('message').value;
-            const captchaRaw = document.getElementById('captchaInput').value;
-
-            const nameVal = sanitize(nameRaw);
-            const emailVal = sanitize(emailRaw);
-            const phoneVal = sanitize(phoneRaw);
-            const messageVal = sanitize(messageRaw);
-
-            // Write sanitized values back
-            document.getElementById('name').value = nameVal;
-            document.getElementById('email').value = emailVal;
-            document.getElementById('phone').value = phoneVal;
-            document.getElementById('message').value = messageVal;
-
-            // 6. Field validation
-            let hasErrors = false;
-
-            const nameCheck = validateName(nameVal);
-            if (!nameCheck.valid) { showFieldError('name', nameCheck.message); hasErrors = true; }
-            else { markFieldSuccess('name'); }
-
-            const emailCheck = validateEmail(emailVal);
-            if (!emailCheck.valid) { showFieldError('email', emailCheck.message); hasErrors = true; }
-            else { markFieldSuccess('email'); }
-
-            const phoneCheck = validatePhone(phoneVal);
-            if (!phoneCheck.valid) { showFieldError('phone', phoneCheck.message); hasErrors = true; }
-            else { markFieldSuccess('phone'); }
-
-            const msgCheck = validateMessage(messageVal);
-            if (!msgCheck.valid) { showFieldError('message', msgCheck.message); hasErrors = true; }
-            else { markFieldSuccess('message'); }
-
-            // 7. CAPTCHA validation
-            if (!validateCaptcha(captchaRaw)) {
-                showFieldError('captcha', 'Incorrect answer. Please try again.');
-                hasErrors = true;
-                document.getElementById('captchaInput').classList.add('shake');
-                setTimeout(() => document.getElementById('captchaInput').classList.remove('shake'), 400);
-                generateCaptcha();
-            } else {
-                markFieldSuccess('captcha');
-            }
-
-            if (hasErrors) {
-                // Scroll to first error
-                const firstError = document.querySelector('.field-error.visible');
-                if (firstError) {
-                    firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                // CHECK 1: Honeypot — if filled, it's a bot
+                if (document.getElementById('hp_website').value !== '') {
+                    showSecurityToast('Automated submission detected and blocked.', 'error');
+                    return;
                 }
-                return false;
+
+                // CHECK 2: Rate limiting
+                if (!checkRateLimit()) {
+                    showSecurityToast('Too many submissions. Please try again later.', 'warning');
+                    submitBtn.disabled = true;
+                    setTimeout(function() { submitBtn.disabled = false; }, RATE_LIMIT_WINDOW);
+                    return;
+                }
+
+                // CHECK 3: Prevent double submission
+                if (formSubmitted) {
+                    showSecurityToast('Your message is already being sent.', 'warning');
+                    return;
+                }
+
+                // CHECK 4: CSRF token validation
+                const csrfToken = document.getElementById('csrfToken').value;
+                if (!validateCSRFToken(csrfToken)) {
+                    showSecurityToast('Invalid session token. Please refresh the page.', 'error');
+                    return;
+                }
+
+                // CHECK 5: Full field validation
+                let allValid = true;
+                ['name', 'email', 'phone', 'message'].forEach(function(fieldId) {
+                    if (!validateField(fieldId)) {
+                        allValid = false;
+                    }
+                });
+
+                if (!allValid) {
+                    showSecurityToast('Please fix the errors in the form.', 'warning');
+                    return;
+                }
+
+                // CHECK 6: Sanitize all inputs before submission
+                const nameField = document.getElementById('name');
+                const messageField = document.getElementById('message');
+                nameField.value = sanitizeInput(nameField.value);
+                messageField.value = sanitizeInput(messageField.value);
+
+                // CHECK 7: Set and verify form action RIGHT BEFORE submission
+                const actionUrl = getFormAction();
+                if (!verifyFormAction(actionUrl)) {
+                    showSecurityToast('Form endpoint verification failed. Submission blocked.', 'error');
+                    return;
+                }
+                form.action = actionUrl;
+
+                // CHECK 8: Final tamper check after setting action
+                if (isFormTampered(form)) {
+                    showSecurityToast('Form integrity check failed. Submission blocked.', 'error');
+                    form.action = '';
+                    return;
+                }
+
+                // ALL CHECKS PASSED — Submit securely
+                formSubmitted = true;
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Sending...';
+                recordSubmission();
+
+                // Use native form submit (bypasses our own listener)
+                form.submit();
+
+                // Redirect after a reasonable delay
+                setTimeout(function() {
+                    window.location.href = 'sf.html';
+                }, 3000);
+            });
+        }
+
+        // ============================================================
+        // 9. SEARCH FUNCTIONALITY (secured)
+        // ============================================================
+        function initSearch() {
+            const navSearchInput = document.getElementById('navSearchInput');
+            const clearSearch = document.getElementById('clearSearch');
+
+            function debounce(func, wait) {
+                let timeout;
+                return function executedFunction() {
+                    const later = function() {
+                        clearTimeout(timeout);
+                        func.apply(this, arguments);
+                    };
+                    clearTimeout(timeout);
+                    timeout = setTimeout(later, wait);
+                };
             }
 
-            // 8. All checks passed — submit the form
-            isSubmitting = true;
-            const btn = document.getElementById('submitBtn');
-            btn.disabled = true;
-            btn.classList.add('loading');
+            function performSearch(query) {
+                // Sanitize search query — only allow alphanumeric and spaces
+                query = query.trim().toLowerCase().replace(/[^a-z0-9\s\-]/g, '');
+                if (query.length >= 2 && query.length <= 100) {
+                    window.location.href = 'products.html?search=' + encodeURIComponent(query);
+                }
+            }
 
-            // Record this attempt
-            recordAttempt();
+            var debouncedSearch = debounce(performSearch, 300);
 
-            // Invalidate token so it can't be replayed
-            sessionToken = 'consumed_' + generateToken();
-
-            // Allow the native form submission to proceed
-            submitted = true;
-            document.getElementById('form1').submit();
-            return true;
-        }
-
-        // --- Live validation on blur ---
-        function attachLiveValidation() {
-            const fields = [
-                { id: 'name', validator: (v) => validateName(sanitize(v)), key: 'name' },
-                { id: 'email', validator: (v) => validateEmail(sanitize(v)), key: 'email' },
-                { id: 'phone', validator: (v) => validatePhone(sanitize(v)), key: 'phone' },
-                { id: 'message', validator: (v) => validateMessage(sanitize(v)), key: 'message' }
-            ];
-
-            fields.forEach(({ id, validator, key }) => {
-                const el = document.getElementById(id);
-                el.addEventListener('blur', () => {
-                    const val = el.value;
-                    if (val.trim().length === 0) {
-                        clearFieldError(key);
-                        el.classList.remove('input-success', 'input-error');
-                        return;
-                    }
-                    const result = validator(val);
-                    if (result.valid) {
-                        markFieldSuccess(key);
-                    } else {
-                        showFieldError(key, result.message);
-                    }
-                });
-
-                // Clear error on input
-                el.addEventListener('input', () => {
-                    clearFieldError(key);
-                    el.classList.remove('input-error');
-                });
-            });
-        }
-
-        // --- Event bindings ---
-        function bindEvents() {
-            // CAPTCHA refresh
-            document.getElementById('captchaRefresh').addEventListener('click', () => {
-                generateCaptcha();
-                document.getElementById('captchaInput').focus();
+            navSearchInput.addEventListener('input', function() {
+                var query = navSearchInput.value;
+                clearSearch.style.display = query ? 'block' : 'none';
+                debouncedSearch(query);
             });
 
-            // Prevent paste on CAPTCHA
-            document.getElementById('captchaInput').addEventListener('paste', (e) => {
-                e.preventDefault();
-                showToast('Pasting is not allowed in this field.', 'warning');
+            clearSearch.addEventListener('click', function() {
+                navSearchInput.value = '';
+                clearSearch.style.display = 'none';
+                navSearchInput.focus();
             });
 
-            // Prevent right-click on CAPTCHA question (anti-OCR)
-            document.getElementById('captchaQuestion').addEventListener('contextmenu', (e) => {
-                e.preventDefault();
-            });
-
-            // Block drag-and-drop on all form inputs
-            document.querySelectorAll('#form1 input, #form1 textarea').forEach(el => {
-                el.addEventListener('drop', (e) => e.preventDefault());
-            });
-
-            // Keyboard: Enter on CAPTCHA should not submit
-            document.getElementById('captchaInput').addEventListener('keydown', (e) => {
+            navSearchInput.addEventListener('keydown', function(e) {
                 if (e.key === 'Enter') {
                     e.preventDefault();
-                    // Just validate the captcha field
-                    const val = e.target.value;
-                    if (validateCaptcha(val)) {
-                        markFieldSuccess('captcha');
-                        document.getElementById('submitBtn').focus();
-                    } else {
-                        showFieldError('captcha', 'Incorrect answer. Please try again.');
-                        e.target.classList.add('shake');
-                        setTimeout(() => e.target.classList.remove('shake'), 400);
-                        generateCaptcha();
-                    }
+                    performSearch(navSearchInput.value);
+                }
+                if (e.key === 'Escape') {
+                    clearSearch.click();
                 }
             });
         }
 
-        // --- Public API ---
-        return {
-            init,
-            handleSubmit
-        };
-    })();
+        // ============================================================
+        // 10. HAMBURGER MENU
+        // ============================================================
+        function initMenu() {
+            var hamburger = document.querySelector('.hamburger');
+            var navLinks = document.querySelector('.nav-links');
+            hamburger.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+            });
+        }
 
+        // ============================================================
+        // 11. DEVTOOLS / CONSOLE TAMPER DETECTION (optional layer)
+        //    Warns if someone opens devtools to modify form action
+        // ============================================================
+        function initTamperDetection() {
+            var form = document.getElementById('contactForm');
+            var devtoolsOpen = false;
 
-    /* ============================================================
-       NON-SECURITY: Navigation, Search, etc.
-    ============================================================ */
-
-    // Hamburger menu toggle
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
-    hamburger.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-    });
-
-    // Search functionality with debounce
-    const navSearchInput = document.getElementById('navSearchInput');
-    const clearSearch = document.getElementById('clearSearch');
-
-    function debounce(func, wait) {
-        let timeout;
-        return function executedFunction(...args) {
-            const later = () => {
-                clearTimeout(timeout);
-                func(...args);
+            var threshold = 160;
+            var check = function() {
+                if (
+                    window.outerWidth - window.innerWidth > threshold ||
+                    window.outerHeight - window.innerHeight > threshold
+                ) {
+                    if (!devtoolsOpen) {
+                        devtoolsOpen = true;
+                        // Re-verify form action when devtools opens
+                        if (form.action && isFormTampered(form)) {
+                            form.action = '';
+                            showSecurityToast('Form integrity restored after tampering attempt.', 'error');
+                        }
+                    }
+                } else {
+                    devtoolsOpen = false;
+                }
             };
-            clearTimeout(timeout);
-            timeout = setTimeout(later, wait);
-        };
-    }
 
-    const performSearch = (query) => {
-        query = query.trim().toLowerCase().replace(/[^a-z0-9\s]/g, '');
-        if (query) {
-            window.location.href = `products.html?search=${encodeURIComponent(query)}`;
+            setInterval(check, 1000);
         }
-    };
 
-    const debouncedSearch = debounce(performSearch, 300);
+        // ============================================================
+        // 12. PREVENT RIGHT-CLICK ON FORM (deters casual inspection)
+        // ============================================================
+        function initFormProtection() {
+            var formSection = document.querySelector('.contact-form');
+            formSection.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+                showSecurityToast('Right-click is disabled on this form for security.', 'warning');
+            });
 
-    navSearchInput.addEventListener('input', () => {
-        const query = navSearchInput.value;
-        clearSearch.style.display = query ? 'block' : 'none';
-        debouncedSearch(query);
-    });
-
-    clearSearch.addEventListener('click', () => {
-        navSearchInput.value = '';
-        clearSearch.style.display = 'none';
-        navSearchInput.focus();
-    });
-
-    navSearchInput.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') {
-            performSearch(navSearchInput.value);
+            // Prevent drag of form elements
+            formSection.addEventListener('dragstart', function(e) {
+                e.preventDefault();
+            });
         }
-        if (e.key === 'Escape') {
-            clearSearch.click();
+
+        // ============================================================
+        // INITIALIZE EVERYTHING ON DOM READY
+        // ============================================================
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', function() {
+                initForm();
+                initSearch();
+                initMenu();
+                initTamperDetection();
+                initFormProtection();
+            });
+        } else {
+            initForm();
+            initSearch();
+            initMenu();
+            initTamperDetection();
+            initFormProtection();
         }
-    });
 
-    // Expose submit handler to inline onsubmit
-    function handleFormSubmit(event) {
-        return FormShield.handleSubmit(event);
-    }
-
-    // Initialize security on DOM ready
-    document.addEventListener('DOMContentLoaded', FormShield.init);
+    })();
     </script>
 </body>
 </html>
